@@ -6,4 +6,4 @@
 
 - 파일명은 [YYMMDD.md](http://yymmdd.md) 로 작성한다
 
-[JavaScript](https://github.com/lightixxx/TIL/tree/master/JavaScript)
+[JavaScript](https://github.com/lightixxx/TIL/tree/master/JavaScript.md)
