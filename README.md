@@ -6,4 +6,4 @@
 
 - 파일명은 YYMMDD.md로 작성한다
 
-[JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
+ 1. [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
