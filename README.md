@@ -4,6 +4,6 @@
 
 ## 🖋 How to write
 
-- 파일명은 [YYMMDD.md](http://yymmdd.md) 로 작성한다
+- 파일명은 YYMMDD.md로 작성한다
 
 [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
