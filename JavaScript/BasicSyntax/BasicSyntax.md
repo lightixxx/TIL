@@ -76,7 +76,8 @@ function for() {} // for 은 예약어이기 때문에 함수명으로 사용할
 
 앞으로 특정한 목적을 위해 사용할 가능성이 있어서 사용할 수 없는 예약어. (런타임 환경마다 다를 수 있음)
 
-[Future_reserved_words](https://javascript.fandom.com/wiki/Future_reserved_words) 
+[Future_reserved_words](https://javascript.fandom.com/wiki/Future_reserved_words)
+
 <br />
 
 ## Identifier (식별자)
