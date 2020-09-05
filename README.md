@@ -9,7 +9,6 @@
 - 기본 문법을 최초로 작성한다
 - 무리하지 말고, 꾸준히 작성한다
 
----
 
 ### 📌 TIL list
  * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
