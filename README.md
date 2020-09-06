@@ -11,4 +11,8 @@
 
 ### 📌 TIL list
  * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
-   - [BasicSyntax](https://github.com/lightixxx/TIL/blob/master/JavaScript/BasicSyntax/BasicSyntax.md)
+   - [BasicSyntax](https://github.com/lightixxx/TIL/blob/master/JavaScript/BasicSyntax.md)
+   - [Condition] (https://github.com/lightixxx/TIL/blob/master/JavaScript/Condition.md)
+   - [Loops] (https://github.com/lightixxx/TIL/blob/master/JavaScript/Loops.md)
+   - [Function] (https://github.com/lightixxx/TIL/blob/master/JavaScript/Function.md)
+   - [Object] (https://github.com/lightixxx/TIL/blob/master/JavaScript/Object.md)
