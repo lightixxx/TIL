@@ -12,7 +12,7 @@
 
 
 ### 📌 TIL list
- * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript/JavaScript.md)
+ * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
    - [BasicSyntax](https://github.com/lightixxx/TIL/blob/master/JavaScript/BasicSyntax.md)
    - [Condition](https://github.com/lightixxx/TIL/blob/master/JavaScript/Condition.md)
    - [Loops](https://github.com/lightixxx/TIL/blob/master/JavaScript/Loops.md)
