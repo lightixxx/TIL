@@ -1,4 +1,4 @@
-## Conditiona (조건문)
+# Condition (조건문)
 특정 조건에 따라 코드가 실행되게 하는 구문
 <br />
 <br />
