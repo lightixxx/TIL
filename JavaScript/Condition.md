@@ -2,7 +2,7 @@
 특정 조건에 따라 코드가 실행되게 하는 구문
 <br />
 <br />
-### if, else if, else (조건문)
+## if, else if, else (조건문)
 
 `if(조건) { 조건이 true일 때 실행할 코드}`
 
@@ -18,8 +18,10 @@ if (name === 'lightix') {
 	console.log('unknown');
 }
 ```
+
 <br />
-### Ternary operator (삼항 연산자)
+
+## Ternary operator (삼항 연산자)
 
 `조건 ? true일 때 값 : false일 때 값;`
 
@@ -30,8 +32,10 @@ const name = 'df';
 
 console.log(name === 'lightix' ? 'yes' : 'no'); // no
 ```
+
 <br />
-### Switch statement (조건문)
+
+## Switch statement (조건문)
 
 `switch (검사할 변수) { case 조건 : 할 일; case 조건 : 할 일; default : 할 일;}` 
 
