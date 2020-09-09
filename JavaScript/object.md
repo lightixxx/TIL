@@ -24,4 +24,62 @@ const obj3 = Object.create();
 
 <br />
 
+객체를 선언할 때는 `{ }` 안에 원하는 값을 넣으면 된다.
+```jsx
+키 : 원하는 값,
+key : value
+```
+📌 key 값에는 공백이 없어야 한다. 공백이 있어야 하는 상황이라면 따옴표로 감싼다.
+
+<br />
+
 객체없이 변수로만 코드를 작성한다면, 그룹으로 묶어서 관리가 어려워진다.
+
+```jsx
+// 객체가 없다면
+const name = 'lightix';
+const age = 28
+print(name,age);
+function print(name, age) {
+  console.log(name);
+  console.log(age);
+}
+
+// 객체를 사용하면
+function print(person) {
+  console.log(person.name);
+  console.log(person.age);
+};
+
+const lightix = {
+  name: 'lightix',
+  age: 28
+};
+
+print(lightix);
+```
+
+<br />
+
+### 함수에서 객체를 파라미터로 받기
+함수를 만들고 객체를 파라미터로 받아서 사용
+```jsx
+const lightix = {
+  name: 'kiwoong',
+  
+}
+```
+
+
+
+
+<br />
+
+자바스크립트는 런타임 때 동적으로 타입이 결정되는 언어이기 때문에, 나중에 프로퍼티를 추가 및 삭제할 수 있다. 단, 유지보수 측면에서는 좋지 않은 습관이다.
+```jsx
+lightix.hasjob = false;
+console.log(lightix.hasJob) // false
+
+delete lightix.hasJob;
+console.log(lightix.hasJob); // undefined
+```
