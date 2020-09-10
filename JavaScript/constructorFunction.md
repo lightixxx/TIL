@@ -18,7 +18,7 @@ function Person(name, age) {
 	this.age = age;
 }
 
-const p = new Person('lightix', 28);
+const lightix = new Person('lightix', 28);
 ```
 
 <br />

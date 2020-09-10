@@ -16,10 +16,11 @@
 ## 📌 TIL list
  * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
    - [basicSyntax](https://github.com/lightixxx/TIL/blob/master/JavaScript/basicSyntax.md)
+   - [operator](https://github.com/lightixxx/TIL/blob/master/JavaScript/operator.md)
    - [condition](https://github.com/lightixxx/TIL/blob/master/JavaScript/condition.md)
    - [loops](https://github.com/lightixxx/TIL/blob/master/JavaScript/loops.md)
    - [array](https://github.com/lightixxx/TIL/blob/master/JavaScript/array.md)
    - [function](https://github.com/lightixxx/TIL/blob/master/JavaScript/function.md)
    - [object](https://github.com/lightixxx/TIL/blob/master/JavaScript/object.md)
    - [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)
-   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/algorithm.md)
+   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/algorithm/README.md)
