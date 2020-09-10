@@ -132,6 +132,7 @@ const 1name = 'lightix'; // Error!
 📌 프로그램에서 사용하는 변수나 함수의 이름을 짓는 것은 언제나 어려운 일이다.
 
 📌 의미없는 이름은 사용하지 않고, 역할에 맞는 적절한 이름을 짓도록 노력해야 한다.
+
 <br />
 
 ## Comments (주석)
@@ -163,17 +164,23 @@ text = 1; // value: 1, type: number
 text = '7' + 5; // value: 75, type: string
 text = '8' / '2'; // value: 4 , type: number
 ```
+<br />
 
 ### 자바스크립트는 크게 두 가지 데이터 타입을 갖는다
 
 1. Primitive data type : Number, String, Boolean 등과 같이 값이 전달되는 타입
+   * 변경 불가능한 값(immutable value)
+   * 값에 의한 전달(pass-by-value)
 2. Reference data type : Array, Object, Function 과 같이 참조로 전달되며, 포인터 주소만 복사하고 동일한 데이터를 모두 공유하는 타입
+<br />
 
 ### Variable types
 
 - 더이상 작은 단위로 나누어지지 않는 단일 아이템 : number, string, boolean, null, undefined, symbol
 - 단일 아이템을 여러개 묶어서 한 박스로 관리할 수 있는 아이템 : object
 - 함수는 1급 객체이다
+
+<br />
 
 ### Number
 
@@ -200,6 +207,8 @@ const b = Number('28');
 console.log(b, typeof b); // 28 'number'
 ```
 
+<br />
+
 ### String
 
 글자와 기타 문자들을 다루기 위한 데이터 타입이다.
@@ -212,18 +221,34 @@ const char = 'c';
 const lightix = 'lighix';
 const greeting = 'hello' + lightix; // string + 변수 도 가능하다
 ```
+문자열은 배열처럼 인덱스를 통해 접근이 가능하다.(유사 배열)
+```jsx
+const str = 'lightix';
+for(let i = 0; i < str.length; i++) {
+	console.log(str[i]);
+}
+
+// 단, 변경할 수는 없다
+str[3] = 'x';
+console.log(str); // lightix
+```
+한 번 생성된 문자열은 read only로 변경이 불가능(immutable)하다.
+
+<br />
 
 ### Boolean
 
 true 혹은 fasle 중 하나의 값만 가질 수 있는 데이터 타입이다.
 
 - 참 (true) : 거짓을 뺀 모든 값
-- 거짓 (false) : 0, null, undefined, NaN, ' '
+- 거짓 (false) : 0, null, undefined, NaN, ' '은 false로 간주.
 
 ```jsx
 const canRead = true;
 const test = 3 < 1; //false
 ```
+
+<br />
 
 ### Null /  Undefined
 
@@ -240,13 +265,18 @@ console.log(nothing == x); // true
 console.log(nothing === x); // false
 ```
 
+<br />
+
 ### Object
-
-일상생활에서 볼 수 있는 물건을 대표하는 박스 형태
-
+데이터와 그 데이터에 관련한 동작을 모두 포함하는 개념적인 존재이다. 이름과 값을 갖는 데이터를 의미하는 프로퍼티(property)와 동작을 의미하는 메소드(method)를 포함할 수 있는 독립적 주체를 말한다.
+- Primitives 를 제외한 모든 것
+- 일상생활에서 볼 수 있는 물건을 대표하는 박스 형태
+- 참조에 의한 전달방식(pass-by-reference)으로 전달된다.
 ```jsx
 const lightix = { name : '이기웅', age: 20 };
 ```
+
+<br />
 
 ### Function
 
@@ -280,9 +310,16 @@ console.log(symbol1.description); // .description 을 붙여서 string으로 변
 
 ## Variable & Constant (변수와 상수)
 
-변수(Variable)란, 값을 저장할 수 있는 메모리의 공간을 의미한다.
+변수(Variable)란, 프로그램에서 사용되는 데이터를 일정 기간 동안 기억하여 필요한 때에 다시 사용하기 위해 데이터에 고유의 이름인 식별자(identifier)를 명시한 것이다. 값을 저장할 수 있는 메모리의 공간을 의미한다.
 
 상수(Constant)란, 값을 한 번 저장하면 변경할 수 없는 값이다.
+```jsx
+let score; // 변수 선언
+score = 80; // 값의 할당
+score = 90; // 값의 재할당
+score; // 변수의 참조
+```
+
 
 <br>
 
@@ -645,3 +682,10 @@ setClick();
 
 - let으로 선언됐을 경우 for문의 중괄호도 스코프 생성이 되기 때문에 각각의 값을 저장한다.
 - let이 for문에서만 특이하다 ?
+
+<br />
+
+#### 출처
+
+##### [Poiema Web](https://poiemaweb.com/js-data-type-variable)
+##### [Dream Coding Ellie](https://youtu.be/OCCpGh4ujb8)
