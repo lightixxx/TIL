@@ -1,6 +1,6 @@
 # Operator (연산자)
 연산자는 하나 혹은 그 이상의 값을 하나의 값으로 만들 때 사용한다.
-자바스크립트의 연산자는 할당, 비교, 산술, 비트, 논리, 문자열, 조건, 쉼표, 단항, 관계 등 다양한 연산자가 있다.
+자바스크립트의 연산자는 할당, 비교, 산술, 비트, 논리, 문자열, 조건, 쉼표, 단항, 관계 등 다양한 연산자가 있다. 피연산자도 평가되어 하나의 값으로 귀결되므로 표현식이고 피연산자를 연산자와 결합한 연산자 표현식도 표현식이다.
 
 <br />
 
@@ -131,6 +131,22 @@ console.log(lightix1 == lightix2); // false
 console.log(lightix1 === lightix2); // false
 console.log(lightix1 == lightix3); // true
 ```
+
+<br />
+
+또한 비교연산자에서 주의해야 할 것은 `NaN`이다. `NaN`은 자신과 일치하지 않는 유일한 값이다. 따라서 숫자가 `NaN`인지 조사하려면 빌트인 함수 `isNaN`을 사용한다.
+```jsx
+NaN === NaN // false
+isNaN(NaN) // true
+```
+<br />
+
+숫자 0도 주의가 필요하다.
+```jsx
+0 === -0 // ture
+```
+
+<br />
 
 문자열은 유니코드 값을 사용하여 표준 사전순서를 기반으로 비교한다. 만약 두 피연산자가 다른 형태일 경우, JavaScript는 대부분 비교를 위해 피연산자를 적절한 타입으로 변환한다. 이런 행동은 보통 숫자로 피연산자를 숫자로 비교하는 형태로 나타난다. 형태를 바꾸기의 유일한 예외는 엄격한 비교를 수행하는 `===` 과 `!==` 연산이 관련되는 경우다. 이런 연산자는 비교를 위해 피연산자의 형태를 적절히 바꾸려고 시도하지 않는다.
 <table style="border-collapse: collapse; width: 100%; height: 171px;" border="1" data-ke-style="style15"><tbody><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;"><b>연산자</b></td><td style="width: 51.8218%; height: 19px; text-align: center;"><b>설명</b></td><td style="width: 26.7053%; height: 19px; text-align: center;"><b>true를 반환하는 예</b></td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">동등 ( == )</td><td style="width: 51.8218%; height: 19px; text-align: center;">피연산자들이 같으면 true를 반환한다.</td><td style="width: 26.7053%; height: 19px; text-align: center;">3 == a<br>"3" == a<br>3 == "3"</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">부등 ( != )</td><td style="width: 51.8218%; height: 19px; text-align: center;">피연산자들이 다르면 true를 반환한다.</td><td style="width: 26.7053%; height: 19px; text-align: center;">a != 4<br>b != "3"</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">일치 ( === )</td><td style="width: 51.8218%; height: 19px; text-align: center;">피연산자들이 같고, 피연산자들의 형태가 같을 경우 true를 반환한다.</td><td style="width: 26.7053%; height: 19px; text-align: center;">3 === a</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">불일치 ( !== )</td><td style="width: 51.8218%; height: 19px; text-align: center;">피연산자들이 다르거나 형태가 다른 경우 <span style="color: #333333;">true를 반환한다.</span></td><td style="width: 26.7053%; height: 19px; text-align: center;">a !== "3"<br>3 !== "3"</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">~ 보다 큰 ( &gt; )</td><td style="width: 51.8218%; height: 19px; text-align: center;">좌변의 피연산자보다 우변의 피연산자가 크면 <span style="color: #333333;">true를 반환한다.</span></td><td style="width: 26.7053%; height: 19px; text-align: center;">b &gt; a<br>"10" &gt; 3</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">~ 보다 크거나 같은 ( &gt;= )</td><td style="width: 51.8218%; height: 19px; text-align: center;">좌변의 피연산자보다 우변의 피연산자가 크거나 같으면 <span style="color: #333333;">true를 반환한다.</span></td><td style="width: 26.7053%; height: 19px; text-align: center;">b &gt;= a<br>a &gt;= 3</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">~ 보다 작은 ( &lt; )</td><td style="width: 51.8218%; height: 19px; text-align: center;">좌변의 피연산자보다 우변의 피연산자가 작으면 <span style="color: #333333;">true를 반환한다.</span></td><td style="width: 26.7053%; height: 19px; text-align: center;">a &lt; b<br>"5" &lt; 10</td></tr><tr style="height: 19px;"><td style="width: 21.4728%; height: 19px; text-align: center;">~ 보다 작거나 같은 ( &lt;= )</td><td style="width: 51.8218%; height: 19px; text-align: center;">좌변의 피연산자보다 우변의 피연산자가 작거나 같으면 <span style="color: #333333;">true를 반환한다.</span></td><td style="width: 26.7053%; height: 19px; text-align: center;">a &lt;= b<br>b &lt;= 5</td></tr></tbody></table>
@@ -405,6 +421,16 @@ typeof Math;     // returns "object"
 typeof Option;   // returns "function"
 typeof String;   // returns "function"
 ```
+
+특이하게 `null`은 `object`를 반환한다. 설계오류(?) 라고 한다. 따라서 null의 타입을 확인할 때는 일치연산자 `===`를 사용하자.
+```jsx
+typeof null // returns "object"
+
+var foo = null;
+console.log(typeof foo === null); // false
+console.log(foo === null); // true
+```
+
 
 <br />
 
