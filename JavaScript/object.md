@@ -1,5 +1,9 @@
 # Object (객체)
-객체란, 현실세계에서 인지하는 물체에 대한 모델을 만들기 위해 변수와 함수를 그룹화한 것을 말한다. 배열은 아이템에 대한 식별자로 숫자를 사용하는 반면, 객체는 식별자로 문자를 사용할 수 있다.
+
+객체란, 현실세계에서 인지하는 물체에 대한 모델을 만들기 위해 변수와 함수를 그룹화한 것을 말한다. 자바스크립트의 객체는 키와 값으로 구성된 프로퍼티들의 집합이다. 프로퍼티의 값으로 자바스크립트에서 사용할 수 있는 모든 값을 사용할 수 있다.
+
+- 배열은 아이템에 대한 식별자로 숫자를 사용하는 반면, 객체는 식별자로 문자를 사용할 수 있다.
+- 자바스크립트의 객체는 객체지향의 상속을 구현하기위해 "프로토타입"이라고 불리는 객체의 프로퍼티와 메소드를 상속받을 수 있다.
 
 
 <br />
@@ -64,6 +68,67 @@ const obj3 = Object.create();
 
 <br />
 
+### Literal
+
+가장 일반적인 자바스크립트의 객체 생성 방식이다. 중괄호`{ }` 를 이용해서 객체를 생성하는데, 1개 이상의 프로퍼티를 작성하면 해당 프로퍼티가 추가된 객체를 생성할 수 있다. `{ }` 안에 아무것도 작성하지 않으면 빈객체가 생성된다.
+```jsx
+const emptyObj = {};
+console.log(typeof emptyObject); // object
+
+const lightix = {
+  name: 'kiwoong',
+  sex: 'male',
+  favoriteFood: 'ramen',
+  eat: function() {
+    console.log(`${this.favoriteFood}을(를) 먹는다.`);
+  }
+};
+```
+
+<br />
+
+### Object constructor function
+`new` 연산자와 Object 생성자 함수를 호출하여 빈 객체를 만들 수 있다. 빈 객체 생성 이후 프로퍼티 또는 메소드를 추가해서 객체를 완성하는 방법이다. 생성자 함수란 new 키워드와 함께 객체를 생성하고 초기화하는 함수를 말한다. 생성자 함수를 통해 생성된 객체를 인스턴스라고 한다.
+
+객체가 소유하고 있지 않은 프로퍼티 키에 값을 할당하면 해당 객체에 프로퍼티를 추가하고 값을 할당한다. 이미 존재하는 키에 새로운 값을 할당하면 프로퍼티 값은 할당한 값으로 덮어 씌워진다.
+
+```jsx
+const lightix = new Object();
+
+// 프로퍼티 추가
+lightix.name = 'kiwoong';
+lightix.sex = 'male';
+lightix.favoriteFood = 'ramen';
+lightix.eat = function () {
+  console.log(`${this.favoriteFood}을(를) 먹는다.`);
+}
+```
+특별한 이유가 없다면 객체 리터럴을 이용하는 것이 간편하다.
+
+<br />
+
+### Constructor function
+프로퍼티 값만 다른 여러 개의 객체를 생성할 때, 위 두 가지 방법은 같은 프로퍼티를 매번 작성하는 것은 매우 불편한 일이다. 생성자 함수를 사용하면 마치 객체를 생성하기 위한 템플릿처럼 사용해서 프로퍼티가 동일한 객체 여러 개를 간편하게 만들 수 있다.
+
+```jsx
+// 생성자 함수
+function Person(name, sex, favoriteFood) {
+  this.name = name;
+  this.sex = sex;
+  this.favoriteFood = favoriteFood;
+  this.eat = function() {
+    console.log(`${this.favoriteFood}을(를) 먹는다.`);
+  }
+}
+
+// 인스턴스 생성
+const lightix = new Person('kiwoong', 'male', 'ramen');
+const lvvrvsh = new Person('seungsoo', 'male', 'pizza');
+```
+#### 간단한 사용법만 알아보고 자세한 생성자 함수는 이후에 추가될 [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)에 정리
+
+<br />
+
 ## 객체에 접근하는 방법
 ```jsx
 const lightix = {
@@ -74,11 +139,11 @@ const lightix = {
   }
 }
 
-// Dot Notation
+// 마침표 표기법
 const lightixAge = lightix.age; // Property
 const lightixEat = lightix.eat('라면'); // Method
 
-// Square bracket notation
+// 대괄호 표기법
 const lightixName = lightix['name'];
 
 function printValue(obj, key) {
@@ -88,11 +153,18 @@ function printValue(obj, key) {
 printValue(lightix, 'name');
 ```
 1. Dot Notation(마침표 표기법)은 객체의 속성이나 메서드에 접근하기 위해 객체의 이름과 마침표를 작성한 다음 접근하고자 하는 속성이나 메서드의 이름을 작성하는 방법이다.
-2. Square Bracket Notation(대괄호 표기법)은 객체의 이름 다음에 대괄호 안에 속성의 이름을 입력하는 방법이다.
+2. Square Bracket Notation(대괄호 표기법)은 객체의 이름 다음에 대괄호 안에 속성의 이름(문자열)을 입력하는 방법이다.
+   * 프로퍼티 이름이 유효한 자바스크립트 이름이 아닌 경우에 사용한다.
+   * 프로퍼티 이름이 예약어인 경우에 사용한다.
    * 속성의 이름이 숫자인 경우에 사용한다.(기술적으로는 가능하지만 일반적으로는 기피하는 방법)
    * 속성의 이름을 지정할 때 변수가 사용된 경우에 사용한다.
    * 정확하게 어떤 키가 필요한 지 모를 때, 즉 런타임에서 결정될 때 사용한다.
 
+📌 객체가 갖고 있는 프로퍼티에 새로운 값을 할당하면 값은 갱신된다.
+
+📌 객체가 갖고 있지 않은 프로퍼티에 값을 할당하면 주어진 키와 값으로 프로퍼티를 객체에 추가한다.
+
+📌 `delete key값` 연산자를 이용하면 객체의 프로퍼티를 삭제할 수 있다.
 
 <br />
 
@@ -147,7 +219,9 @@ print(lightix);
 
 ## This
 함수가 객체안에 들어가면, `this`는 자신이 속해있는 객체를 가르킨다.
-##### `this` 는 공부할 내용이 많아보이니 간단히만 살펴보자.
+
+#### `this` 는 공부할 내용이 많아보이니 간단히만 알아보고, 이후에 작성할 [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/this.md)에서 자세히 다루자.
+
 ```jsx
 const lightix = {
   name: 'kiwoong',
@@ -166,6 +240,35 @@ lightix.introduce();
 
 <br />
 
+**Q. 왜 객체는 const로 정의해도 값의 변경이 가능할까 ?**
+
+> number, string, boolean, null, undefined 는 primitive 타입으로 값 자체가 레퍼런스에 저장된다. 반면에 객체는 레퍼런스가 const로 정의되었기 때문에 변경이 불가능 하지만, 레퍼런스가 가르키고 있는 값은 변경이 가능하다. [출처 - 드림코딩 엘리](https://youtu.be/1Lbr29tzAA8)
+
+> object type을 객체 타입 또는 참조 타입이라 한다. 참조 타입이란 객체의 모든 연산이 실제값이 아닌 참조값으로 처리됨을 의미한다. 원시 타입은 값이 한번 정해지면 변경할 수 없지만(immutable), 객체는 프로퍼티를 변경, 추가, 삭제가 가능하므로 변경 가능(mutable)한 값이라 할 수 있다. [출처 - poiemaweb](https://poiemaweb.com/js-object)
+
+<br />
+
+### Pass-by-reference
+
+primitive 타입은 값으로 전달된다. 즉, 복사되어 전달되는데 이를 pass-by-value 라고 한다.
+```jsx
+// Pass-by-reference
+const foo = {
+  val: 10
+}
+
+const bar = foo;
+console.log(foo.val, bar.val); // 10 10
+console.log(foo === bar); // true
+
+bar.val = 20;
+console.log(foo.val, bar.val); // 20 20
+console.log(foo === bar); // true
+```
+
+
+<br />
+
 ## Getter & Setter Function
 객체 안에 Getter 함수와 Setter 함수를 설정해서 객체 안의 값을 수정할 수 있다.
 
@@ -180,11 +283,7 @@ console.log(numbers); // {a: 5, b: 2}
 ```
 <br>
 
-**Q. 왜 객체는 const로 정의해도 값의 변경이 가능할까 ?**
 
-> number, string, boolean, null, undefined 는 primitive 타입으로 값 자체가 레퍼런스에 저장된다. 반면에 객체는 레퍼런스가 const로 정의되었기 때문에 변경이 불가능 하지만, 레퍼런스가 가르키고 있는 값은 변경이 가능하다.
-
-<br />
 
 Getter 함수와 Setter 함수를 사용하면, 값을 바꾸거나 값을 조회할 때 코드를 실행시킬 수 있다.
 
@@ -220,30 +319,7 @@ console.log(lightix.hasJob); // undefined
 
 ## Property value shorthand (단축 속성 값)
 
-### constructor function
-key는 같고, value만 다른 여러 객체는  [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md) 로 쉽게 만들 수 있다.
-  * 
-```jsx
-const person1 = {name: 'lightix', age: 28};
-const person2 = {name: 'lvvrvsh', age: 27};
-const person3 = {name: 'sogeumnam', age: 28};
-const person4 = MakePerson('chovalt', 28);
 
-function MakePerson(name, age) {
-  return {
-    name: name,
-    age: age
-  };
-};
-
-// key와 value의 값이 같다면 생략 가능
-// function MakePerson(name, age) {
-//   return {
-//     name,
-//     age
-//   };
-// };
-```
 
 
 
