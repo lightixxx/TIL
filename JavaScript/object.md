@@ -218,7 +218,7 @@ print(lightix);
 <br />
 
 ## This
-함수가 객체안에 들어가면, `this`는 자신이 속해있는 객체를 가르킨다.
+함수가 객체안에 들어가면, `this`는 자신이 속해있는 객체를 가리킨다.
 
 #### `this` 는 공부할 내용이 많아보이니 간단히만 알아보고, 이후에 작성할 [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/this.md)에서 자세히 다루자.
 
@@ -242,7 +242,7 @@ lightix.introduce();
 
 **Q. 왜 객체는 const로 정의해도 값의 변경이 가능할까 ?**
 
-> number, string, boolean, null, undefined 는 primitive 타입으로 값 자체가 레퍼런스에 저장된다. 반면에 객체는 레퍼런스가 const로 정의되었기 때문에 변경이 불가능 하지만, 레퍼런스가 가르키고 있는 값은 변경이 가능하다. [출처 - 드림코딩 엘리](https://youtu.be/1Lbr29tzAA8)
+> number, string, boolean, null, undefined 는 primitive 타입으로 값 자체가 레퍼런스에 저장된다. 반면에 객체는 레퍼런스가 const로 정의되었기 때문에 변경이 불가능 하지만, 레퍼런스가 가리키고 있는 값은 변경이 가능하다. [출처 - 드림코딩 엘리](https://youtu.be/1Lbr29tzAA8)
 
 > object type을 객체 타입 또는 참조 타입이라 한다. 참조 타입이란 객체의 모든 연산이 실제값이 아닌 참조값으로 처리됨을 의미한다. 원시 타입은 값이 한번 정해지면 변경할 수 없지만(immutable), 객체는 프로퍼티를 변경, 추가, 삭제가 가능하므로 변경 가능(mutable)한 값이라 할 수 있다. 반면에 primitive 타입은 값으로 전달된다. 즉, 복사되어 전달되는데 이를 pass-by-value 라고 한다. [출처 - poiemaweb](https://poiemaweb.com/js-object)
 
@@ -268,7 +268,7 @@ console.log(foo === bar); // true
 ```
 `foo` 객체를 literal notation으로 생성하고, 상수 `foo` 는 객체 자체를 저장한 것이 아니라 생성된 객체의 참조값(address)를 저장하고 있다.
 
-상수 `bar` 에 상수 `foo` 를 할당하고, 상수 `foo` 의 값은 생성된 객체를 가르키는 참조값이므로 상수 `bar` 에도 같은 참조값이 저장된다. 즉, `foo`,`bar` 모두 동일한 객체를 참조하고 있다. 따라서 참조하고 있는 객체의 `val` 값이 변경되면 상수 `foo`,`bar` 모두 변경된 객체의 프로퍼티 값을 참조하게 된다. 객체는 복사되는 것이 아니라 참조 방식으로 전달된다.
+상수 `bar` 에 상수 `foo` 를 할당하고, 상수 `foo` 의 값은 생성된 객체를 가리키는 참조값이므로 상수 `bar` 에도 같은 참조값이 저장된다. 즉, `foo`,`bar` 모두 동일한 객체를 참조하고 있다. 따라서 참조하고 있는 객체의 `val` 값이 변경되면 상수 `foo`,`bar` 모두 변경된 객체의 프로퍼티 값을 참조하게 된다. 객체는 복사되는 것이 아니라 참조 방식으로 전달된다.
 
 <br />
 
@@ -286,7 +286,7 @@ console.log(baz === bar) // true
 ```
 `foo`와 `bar`의 내용은 같지만 참조값(address)는 동일하지 않다. 
 
-`baz`에 `bar`의 값을 할당해서 동일한 객체를 가르키는 참조값을 저장했기 때문에 참조값은 동일하다.
+`baz`에 `bar`의 값을 할당해서 동일한 객체를 가리키는 참조값을 저장했기 때문에 참조값은 동일하다.
 
 ```jsx
 var a = { }, b = { }, c = { }; // 각각 다른 빈 객체를 참조

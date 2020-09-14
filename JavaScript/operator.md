@@ -121,7 +121,7 @@ console.log(stringFive != numberFive); // false
 console.log(stringFive === numberFive); // false
 console.log(stringFive !== numberFive); // true
 ```
-단, 객체에서는 약간 다르다. 같은 값을 갖고 있더라도 각각 다른 레퍼런스를 가르키고 있기 때문!
+단, 객체에서는 약간 다르다. 같은 값을 갖고 있더라도 각각 다른 레퍼런스를 가리키고 있기 때문!
 ```jsx
 const lightix1 = { name: 'lightix'};
 const lightix2 = { name: 'lightix'};
