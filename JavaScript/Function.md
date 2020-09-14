@@ -133,6 +133,30 @@ const printMessage = function(message) {
 
 또한 `var` 키워드로 선언된 변수는 선언 단계와 초기화 단계가 한 번에 이루어지기 때문에 스코프에 변수를 등록하고 메모리에 변수를 위한 공간을 확보한 뒤 `undefined`로 초기화 한다. 따라서 변수 선언문 이전에 변수에 접근해도 스코프에 변수가 존재하기 때문에 에러가 발생하지 않지만 `undefined`를 반환한다.
 
+<br />
+
+**Q. 선언적 함수와 함수 표현식의 호이스팅 정리**
+
+- 함수 표현식은 변수에 할당된 다음 부터 호출을 할 수 있지만, 선언적 함수는 자바스크립트가 내부적으로 선언된 함수를 가장 먼저 메모리에 올리기 때문에(호이스팅) 선언되기 이전에 호출해도 실행이 된다.
+
+```jsx
+hello1(); // OK
+hello2(); // hello2 is not a function
+hello3(); // hello3 is not defined
+
+function hello1() {
+	console.log('hello1');
+}
+
+var hello2 = function() {
+	console.log('hello2');
+}
+
+const hello3 = function() {
+	console.log('hello3');
+}
+```
+
 호이스팅도 추후에 [여기서](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md) 더 알아보는 걸로..
 
 <br />
@@ -199,90 +223,7 @@ console.log(obj.name); // 'Kim'
 - `return` 키워드 이후의 다른 구문은 실행되지 않는다.
 
 
-<br />
-
-## Default parameters (ES6)
-
-매개변수가 전달되지 않았을 때 default 값을 설정해서 출력할 수 있다.
-
-```jsx
-// 예전 문법에서는 파라미터가 전달되지 않았을 때, undefined로 출력되는 것을 막기위해 이런 방법을 썼다
-function showMessage(message,from) {
-	if(from === undefined){
-		from = 'unknown';
-	}
-	console.log(`${message} by ${from}`);
-}
-showMessage('Hi!');
-
-// 매개변수가 하나만 전달되었을 경우 디폴트값을 설정할 수 있다 (ES6)
-function showMessage(message, from = 'unknown') {
-	console.log(`${message} by ${from}`);
-}
-showMessage('Hi!');
-```
-
-<br />
-
-## Rest Parameters(ES6)
-
-배열의 형태로 전달되는 파라미터이다
-
-```jsx
-function printAll(...args) {
-	for (let i = 0; i < args.length; i++) {
-		console.log(args[i]);
-	}
-
-	// 간편한 방법
-	for (const arg of args) {
-		console.log(arg);
-	}
-
-	// 더 간편한 방법 (배열의 내장함수 이용)
-	args.forEach((arg) => console.log(arg));
-}
-printAll('dream', 'coding', 'ellie');
-```
-
-<br />
-
-## Local scope
-
-- 블록 밖에서는 안에 접근할 수 없고, 블록 안에서는 밖에 접근할 수 있다
-
-```jsx
-let globalMessage = 'global'; // global variable 전역변수
-
-function printMessage() {
-	let message = 'hello';
-	console.log(message); // local variable 지역변수
-	console.log(globalMessage);
-}
-
-printMessage();
-console.log(message); // 밖에서 안에 선언된 변수에 접근했기 때문에 Error
-```
-
-##### 중첩된 함수에서 자식에 선언된 함수가 부모에 선언된 변수들에 접근이 가능하게 하는 것이 클로저!
-
-<br />
-
-## Return
-
-- 함수에서는 매개변수의 값들을 전달받아서 계산된 값을 리턴할 수 있다
-
-```jsx
-function sum(a,b) {
-	return a + b;
-}
-
-const result = sum(1, 2); // 3
-```
-
-<br />
-
-## Early return
+### Early return
 
 ```jsx
 // bad
@@ -305,47 +246,96 @@ function upgradeUser(user) {
 
 <br />
 
-## Function Expression
-
-익명 함수를 변수에 할당하는 것을 말한다.
-
+## 함수 객체의 프로퍼티
+자바스크립트에서 함수는 객체이다. 따라서 함수도 프로퍼티를 가질 수 있다.
 ```jsx
-const print = function() {
-	console.log('print');
+function square(num) {
+	return num * num;
 }
-print(); // print
-const printAgain = print;
-printAgain(); // print
+
+square.x = 10;
+square.y = 20;
+
+console.log(square.x, square.y);
 ```
-
-**Q. 선언적 함수와 함수 표현식의 차이점**
-
-- 함수 표현식은 변수에 할당된 다음 부터 호출을 할 수 있지만, 선언적 함수는 자바스크립트가 내부적으로 선언된 함수를 가장 먼저 메모리에 올리기 때문에(호이스팅) 선언되기 이전에 호출해도 실행이 된다.
-
-```jsx
-hello1(); // OK
-hello2(); // hello2 is not a function
-hello3(); // hello3 is not defined
-
-function hello1() {
-	console.log('hello1');
-}
-
-var hello2 = function() {
-	console.log('hello2');
-}
-
-const hello3 = function() {
-	console.log('hello3');
-}
-```
+함수 객체는 일반 객체와 달리 함수 객체만의 프로퍼티를 갖고있다.
 
 <br />
 
-## Callback
+### arguments 프로퍼티
+arguments 객체는 함수 호출 시 전달된 인수(arguments)들의 정보를 담고 있는 순회가능한 유사배열 객체이며 함수 내부에서 지역변수처럼 사용된다. 즉, 함수 외부에서는 사용할 수 없다.
 
-함수의 파라미터로 함수가 전달되어 사용하는 것을 콜백함수라고 한다.
+자바스크립트는 함수 호출 시 함수 정의에 따라 인수를 전달하지 않아도 에러가 발생하지 않는다.
+```jsx
+function multiply(x, y) {
+	console.log(arguments);
+	return x * y;
+}
 
+multiply();
+multiply(1);
+multiply(2,4);
+multiply(2, 4, 6);
+```
+매개변수(parameter)는 인수(argument)로 초기화된다.
+- 매개변수의 갯수보다 인수를 적게 전달했을 경우, 인수가 전달되지 않은 매개변수는 `undefined`로 초기화된다.
+- 매개변수의 갯수보다 인수를 더 많이 전달한 경우, 초과된 인수는 무시된다.
+
+> 이 특성때문에 런타임시 호출된 함수의 인자 갯수를 확인하고 이에 따라 동작을 달리 정의할 필요가 있을 수 있다. 이때 유용하게 사용되는 것이 arguments 객체이다...?
+
+arguments 객체는 매개변수의 갯수가 확정되지 않은 가변 인자 함수를 구현할 때 유용하게 사용된다.
+
+```jsx
+function sum() {
+	let result = 0;
+
+	for(let i = 0, i < arguments.length; i++) {
+		result += arguments[i];
+	}
+
+	return result;
+}
+
+console.log(sum()); // 0
+console.log(sum(2, 3)); // 5
+console.log(sum(2, 3, 4)); // 9
+```
+자바스크립트는 함수를 호출할 때 인수들과 함께 암묵적으로 arguments 객체가 함수 내부로 전달된다. arguments 객체는 배열의 형태로 인자값 정보를 담고 있지만 실제 배열이 아닌 유사배열객체이다. 
+
+> 유사배열객체란, length 프로퍼티를 가진 객체를 말한다. 유사배열객체란 배열이 아니므로 배열의 메소드는 사용하면 에러를 발생시킨다.
+
+
+그 밖에 caller, length, name, __proto__ 접근자, prototype 등 다양한 프로퍼티는 나중에 필요하면 배우자.. 머리 터지겠다.
+
+<br />
+
+## 함수의 다양한 형태
+
+### IIFE (Immediately Invoked Function Expression)
+함수를 선언함과 동시에 호출하는 것을 말한다. 최초 한번만 호출되며 다시 호출할 수 없다. 이러한 특징을 이용해서 최초 한번만 실행이 필요한 초기화 처리 등에 사용할 수 있다.
+```jsx
+(function hello() {
+	console.log('IIFE');
+})();
+```
+
+> 자바스크립트에서 가장 큰 문제점 중의 하나는 파일이 분리되어 있다하여도 글로벌 스코프가 하나이며 글로벌 스코프에 선언된 변수나 함수는 코드 내의 어디서든지 접근이 가능하다는 것이다.
+> 
+> 따라서 다른 스크립트 파일 내에서 동일한 이름으로 명명된 변수나 함수가 같은 스코프 내에 존재할 경우 원치 않는 결과를 가져올 수 있다. 
+> 
+> 즉시 실행 함수 내에 처리 로직을 모아 두면 혹시 있을 수도 있는 변수명 또는 함수명의 충돌을 방지할 수 있어 이를 위한 목적으로 즉시실행함수를 사용되기도 한다.
+> 
+> 특히 jQuery와 같은 라이브러리의 경우, 코드를 즉시 실행 함수 내에 정의해 두면 라이브러리의 변수들이 독립된 영역 내에 있게 되므로 여러 라이브러리들은 동시에 사용하더라도 변수명 충돌과 같은 문제를 방지할 수 있다. [출처 - poiemaweb](https://poiemaweb.com/js-function)
+
+<br />
+
+### 내부 함수
+함수 내부에 다른 함수를 정의하는 것을 말한다. 내부 함수인 자식함수는 부모함수의 변수에 접근할 수 있지만 부모 함수는 자식함수의 변수에 접근할 수 없다.
+
+<br />
+
+### Callback 함수
+함수를 명시적으로 호출하는 방식이 아니라 특정 이벤트가 발생했을 때, 시스템에 의해 호출되는 함수를 말한다. 함수의 파라미터로 함수가 전달되어 어느 특정 시점에 실행되는 것을 말한다.
 ```jsx
 function randomQuiz(answer, printYes, printNo) {
 	if(answer == 'lightix') {
@@ -370,10 +360,59 @@ randomQuiz('wrong', printYes, printNo);
 randomQuiz('lightix', printYes, printNo);
 ```
 
+> 콜백 함수는 주로 비동기식 처리 모델에 사용된다. 처리가 종료되면 호출될 함수를 미리 매개변수에 전달하고 처리가 종료되면 콜백함수를 호출하는 것을 비동기식 처리 모델이라고 한다. 콜백함수는 콜백 큐에 들어가 있다가 해당 이벤트가 발생하면 호출된다. 콜백함수는 클로저 이므로 콜백 큐에 단독으로 존재하다가 호출돼도 콜백함수를 전달받은 함수의 변수에 접근할 수 있다. [출처 - poiemaweb](https://poiemaweb.com/js-function)
+
 <br />
 
-## Arrow function
+## ES6에 추가된 문법
 
+<br />
+
+### Default parameters (ES6)
+매개변수가 전달되지 않았을 때 default 값을 설정해서 출력할 수 있다.
+
+```jsx
+// 예전 문법에서는 파라미터가 전달되지 않았을 때, undefined로 출력되는 것을 막기위해 이런 방법을 썼다
+function showMessage(message,from) {
+	if(from === undefined){
+		from = 'unknown';
+	}
+	console.log(`${message} by ${from}`);
+}
+showMessage('Hi!');
+
+// 매개변수가 하나만 전달되었을 경우 디폴트값을 설정할 수 있다 (ES6)
+function showMessage(message, from = 'unknown') {
+	console.log(`${message} by ${from}`);
+}
+showMessage('Hi!');
+```
+
+<br />
+
+### Rest Parameters(ES6)
+배열의 형태로 전달되는 파라미터이다.
+
+```jsx
+function printAll(...args) {
+	for (let i = 0; i < args.length; i++) {
+		console.log(args[i]);
+	}
+
+	// 간편한 방법
+	for (const arg of args) {
+		console.log(arg);
+	}
+
+	// 더 간편한 방법 (배열의 내장함수 이용)
+	args.forEach((arg) => console.log(arg));
+}
+printAll('dream', 'coding', 'ellie');
+```
+
+<br />
+
+### Arrow function
 익명함수로 만들고 변수에 할당한다.
 
 ```jsx
@@ -386,19 +425,3 @@ const simpleMultiply = (a, b) => {
 	return a * b;
 }
 ```
-
-<br />
-
-## IIFE (Immediately Invoked Function Expression)
-
-함수를 선언함과 동시에 호출하는 것을 말한다.
-
-```jsx
-(function hello() {
-	console.log('IIFE');
-})();
-```
-
-<br />
-
-
