@@ -114,9 +114,64 @@ function Student(name, kor, math, eng) {
 
 <br />
 
-📌 인스턴스가 어떤 생성자 함수로 생성됐는지 확인할 땐, instanceof 키워드를 사용한다.
+### instanceof 연산자
+
+인스턴스가 어떤 생성자 함수로 생성됐는지 확인할 땐, instanceof 키워드를 사용한다.
+```jsx
+function Student() {...}
+const lightix = new Student();
+
+console.log(lightix instanceof Student); // true
+console.log(lightix instanceof Object); // true
+```
 
 <br />
 
 ## Prototype
-생성자 함수로 생성된 객체가 공통으로 가지는 공간.
+생성자 함수로 생성한 객체들이 공동으로 갖는 공간을 말한다. 일반적으로 메서드를 이런 공간에 선언한다.
+- ES6에서 클래스가 추가되었으므로 간단하게만 살펴보자.
+- Prototype 객체는 생성자 함수에 의해 생성된 각각의 객체에 공유 프로퍼티를 제공하기 위해서 사용한다.
+
+> 자바스크립트의 모든 객체는 자신의 부모 역할을 담당하는 객체와 연결되어 있다. 마치 객체 지향의 상속 개념과 같이 부모 객체의 프로퍼티 또는 메소드를 상속받아 사용할 수 있게한다. 이런 부모 객체를 `Prototype`이라고 한다. [출처 -poiemaweb](https://poiemaweb.com/js-prototype)
+
+생성자 함수로 생성된 객체의 속성은 각각 다른 값을 갖지만 메서드는 모두 같은 값을 갖는 경우가 많다. 각 객체를 생성할 때마다 동일한 함수를 계속 생성하는 것은 메모리를 쓸데없이 잡아먹는 비효율적인 일이다. 이런 문제를 해결해기 위해 자바스크립트는 프로토타입 공간을 만들었다.
+
+메서드를 하나만 생성해도 모든 객체가 해당 메서드를 사용할 수 있기 때문에 생성자 함수로 객체를 만들 때는 생성자 함수 내부에 속성만 넣어 주고, 메서드는 모두 프로토 타입 안에 따로 넣어준다.
+```jsx
+function Student(name, kor, math, eng) {
+  this.name = name;
+  this.kor = kor;
+  this.math = math;
+  this.eng = eng;
+
+  Student.prototype.getSum = function() {
+    return this.kor + this.math + this.eng;
+  }
+
+  Student.prototype.getAverage = function() {
+    return this.getSum() / 3;
+  }
+
+  Student.prototype.toString = function() {
+    return this.name + '\t' + this.getSum() + '\t' + this.getAverage();
+  }
+
+}
+let students = [];
+const lightix = new Student('lightix', 30, 50, 40);
+
+students.push(lightix);
+
+let output = '이름 \t 총점 \t 평균 \n';
+for(let i in students) {
+    output += students[i].toString() + '\n';
+  }
+  console.log(output);
+```
+
+<br />
+
+## 상속
+상속은 기존의 생성자 함수나 객체를 기반으로 새로운 생성자 함수나 객체를 쉽게 만드는 것을 말한다. 기존의 객체를 기반으로 생성하므로 상속으로 새로 만들어지는 객체에는 기존 객체의 특성이 모두 들어있다.
+- 기존의 객체에서 속성과 메서드를 물려받는 것과 비슷하다고 해서 상속이라는 이름을 사용한다.
+- 상속을 이용하면 기존에 만들었던 객체와 비슷한 객체를 쉽게 생성할 수 있다.

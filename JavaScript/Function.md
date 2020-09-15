@@ -407,7 +407,7 @@ function printAll(...args) {
 	// 더 간편한 방법 (배열의 내장함수 이용)
 	args.forEach((arg) => console.log(arg));
 }
-printAll('dream', 'coding', 'ellie');
+printAll('lightix', 'lvvrvsh', 'sogeumnam');
 ```
 
 <br />

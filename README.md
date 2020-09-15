@@ -27,5 +27,6 @@
       * [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)
       * [hoisting](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md)
       * [scope](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/scope.md)
+      * [closure](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/closure.md)
    - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
       * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md) 
