@@ -220,7 +220,7 @@ print(lightix);
 ## This
 함수가 객체안에 들어가면, `this`는 자신이 속해있는 객체를 가리킨다.
 
-#### `this` 는 공부할 내용이 많아보이니 간단히만 알아보고, 이후에 작성할 [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/this.md)에서 자세히 다루자.
+#### `this` 는 공부할 내용이 많아보이니 간단히만 알아보고, 이후에 작성할 [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)에서 자세히 다루자.
 
 ```jsx
 const lightix = {

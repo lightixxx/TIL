@@ -84,3 +84,8 @@ function print2() {
 	const hello = 200;
 }
 ```
+
+<br />
+
+## TDZ (Temporal Dead Zone)
+
