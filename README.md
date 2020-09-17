@@ -24,6 +24,7 @@
    - [object](https://github.com/lightixxx/TIL/blob/master/JavaScript/object.md)
    - [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)
    - [learnMore](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore.md)
+      * [errorHandling](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/errorHandling.md)
       * [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)
       * [hoisting](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md)
       * [scope](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/scope.md)
