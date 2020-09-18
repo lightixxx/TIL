@@ -50,6 +50,45 @@ console.log(gretting);
 
 <br />
 
+```jsx
+var name = 'lightix';
+
+function log() {
+  console.log(name);
+}
+
+function wrapper() {
+  name = 'lvvrvsh';
+  log();
+}
+wrapper(); // 'lvvrvsh'
+```
+위 코드의 경우 
+1. `wrapper()`를 실행하면 `wrapper()`함수는 `name` 변수가 함수 내에 선언 되어있는지 찾는다.
+2. 함수 내에 없기 때문에 한 단계 밖으로 나가서 전역범위에 있는 `var name = 'lightix'`를 발견하고, `lightix` 값을 `lvvrvsh`로 바꾼다.
+3. `log()`를 실행한다.
+4. `log()`함수는 자기 함수 내에 `name`이 없기 때문에 한단계 밖으로 나가서 `name`을 찾는다.
+5. 2번에서 `var name = lvvrvsh'`로 바뀌었기 때문에 `log()` 함수는 `lvvrvsh`를 콘솔에 출력한다.
+
+<br />
+
+```jsx
+var name = 'lightix';
+
+function log() {
+  console.log(name);
+}
+
+function wrapper() {
+  var name = 'lvvrvsh';
+  log();
+}
+wrapper(); // 'lightix'
+```
+위 코드의 경우 `wrapper()` 함수를 실행하면 `name`의 값이 `'lvvrvsh'`이고 `log()` 함수를 실행하면 콘솔에 `'lvvrvsh'`를 찍을 것이라고 생각하기 쉽다. 하지만, 코드가 적힌 순간 스코프가 정해지기(Lexical Scope) 때문에 `wrapper()` 함수 안에 있는 `var name = 'lvvrvsh'`는 밖으로 나오지 못한다. 따라서 `log()`함수는 `name`을 찾기위해 한단계 밖으로 나가서 `var name = 'lightix'`를 발견하고 `'lightix'`를 출력한다.
+
+<br />
+
 변수의 스코프에 대응하는 컨텍스트는 다음의 두 가지이다.
 1. 전역 스코프(global scope): 변수가 함수 바깥에 선언되어 있으면 전역 스코프에 포함되기 때문에 어느 곳에서든 사용할 수 있다. 만약 변수를 선언할 때 `var` 키워드를 사용하지 않으면, 이 변수는 전역 스코프에 포함된다.
 2. 함수 수준 스코프(function scope): 변수가 함수 내에서 선언되면 이 변수는 해당 함수 내에서만 사용할 수 있다. 이 변수는 함수 수준 스코프 내에 존재하기 때문이다.
