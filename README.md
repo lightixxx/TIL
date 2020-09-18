@@ -6,10 +6,8 @@
 
 ## 🖋 How to write
 
-- 언어마다 폴더별로 작성한다
-- 기본 문법을 최초로 작성한다
-- 무리하지 말고, 꾸준히 작성한다
-- 코드의 이해를 설명은 h5로 작성한다
+- 무리하지 말고, 꾸준히 작성한다.
+  
 
 <br />
 
@@ -29,5 +27,6 @@
       * [hoisting](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md)
       * [scope](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/scope.md)
       * [closure](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/closure.md)
+      * [globalObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/globalObject.md)
    - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
       * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md) 

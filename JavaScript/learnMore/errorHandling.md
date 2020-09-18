@@ -168,3 +168,10 @@ wrapper(); // 'lightix'
     * 엔진은 Scope Chain을 통해 Lexical Scope를 파악한다. 이는 자신이 정의된 객체와 연결되어 있다. 따라서 각 실행 컨텍스트의 스코프는 현재 실행 컨텍스트의 variables 객체에 부모 실행 컨텍스트의 variables 객체를 더한 것과 같다.
 3. this value
     * this 프로퍼티에는 this 값이 할당된다. this에 할당되는 값은 함수 호출 패턴에 의해 결정된다.
+
+<br />
+<br />
+
+
+출처
+[poiemaweb - 실행 컨텍스트](https://poiemaweb.com/js-execution-context)
