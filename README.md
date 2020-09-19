@@ -22,9 +22,10 @@
    - [function](https://github.com/lightixxx/TIL/blob/master/JavaScript/function.md)
    - [object](https://github.com/lightixxx/TIL/blob/master/JavaScript/object.md)
    - [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)
-   - [method](https://github.com/lightixxx/TIL/blob/master/JavaScript/method)
-      * [Math](https://github.com/lightixxx/TIL/blob/master/JavaScript/method/Math.md)
-      * 
+   - [builtInObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject)
+      * [Array](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Array.md)
+      * [Math](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Math.md)
+      * [Date](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Date.md)
    - [learnMore](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore.md)
       * [errorHandling](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/errorHandling.md)
       * [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)
