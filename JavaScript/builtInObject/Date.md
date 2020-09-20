@@ -93,6 +93,16 @@ console.log(date); // Sat Sep 26 2020 21:29:05 GMT+0900
 ```
 
 ### D-day 구하기
+날짜 간격을 구할 땐 `getTime()`함수를 사용한다. `getTime()` 함수는 1970년 1월 1일 자정부터 지난 밀리초를 구한다. 이를 사용해서 두 시간 사이의 초 간격을 구하고 다시 날짜로 바꾼다.
 ```jsx
-const 
+// 변수를 선언한다.
+const now = new Date();
+const cristmas = new Date(`December 25, 2020`);
+
+// 날짜 간격을 구한다.
+let dDay = now.getTime() - cristmas.getTime();
+dDay = Math.floor(dDay / (1000 * 60 * 60 * 24));
+
+// 출력한다.
+console.log(`D-day: ${dDay}일`);
 ```
