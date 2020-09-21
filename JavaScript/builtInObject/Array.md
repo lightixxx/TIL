@@ -94,7 +94,6 @@ console.log(arr); // [1, 2, 3]
 
 <br />
 
----
 ## Sorting
 
 <br />
@@ -159,7 +158,6 @@ console.log(lastIndexArr); // 5
 ## API (Application Programming Interface)
 그 밖에 유용한 API
 
----
 <br />
 
 ### join( )
