@@ -23,6 +23,7 @@
    - [object](https://github.com/lightixxx/TIL/blob/master/JavaScript/object.md)
    - [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)
    - [builtInObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject)
+      * [String](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/String.md)
       * [Array](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Array.md)
       * [Math](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Math.md)
       * [Date](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Date.md)

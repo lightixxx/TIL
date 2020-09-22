@@ -15,6 +15,8 @@ const date = new Date();
 console.log(date); // Sat Sep 19 2020 20:54:36 GMT+0900 (대한민국 표준시)
 ```
 
+<br />
+
 ### new Date(dateString)
 인수로 문자열을 전달해서 지정된 날짜와 시간을 갖는 인스턴스를 반환한다. 문자열은 Date.parse 메소드로 해석이 가능한 형식이어야 하기 때문에 한글은 전달할 수 없다.
 - 문자열 외에도 인수로 숫자를 연, 월-1, 일, 시, 분, 초, 밀리 초 순서로 입력할 수도 있다.
@@ -26,12 +28,16 @@ date = new Date('1993/12/24/12:24:12');
 console.log(date); // Fri Dec 24 1993 12:24:12 GMT+0900 (대한민국 표준시)
 ```
 
+<br />
+
 ### new 연산자없이 Date 호출
 Date 생성자 함수를 new 연산자 없이 호출하면 인스턴스를 리턴하지 않고 결과값을 문자열로 리턴한다.
 ```jsx
 let date = Date();
 console.log(typeof date, date); // string Sat Sep 19 2020 21:13:15 GMT+0900 (대한민국 표준시)
 ```
+
+<br />
 
 ## Date Method
 Date 객체의 메서드는 크게 세 가지로 분류할 수 있다.
@@ -54,6 +60,8 @@ console.log(today); // Sat Sep 19 2020 21:22:08 GMT+0900 (대한민국 표준시
 console.log(date); // 19
 ```
 
+<br />
+
 ### Date.setDate()
 날짜(일)를 나타내는 정수를 설정한다.
 
@@ -72,6 +80,8 @@ console.log(date);
 
 `Date` 객체는 getter와 setter 이외에 `toOOstring()` 형태의 메서드도 있다.
 
+<br />
+
 ### Date.toDateString
 읽을 수 있는 형식의 문자열로 날짜를 리턴한다.
 ```jsx
@@ -81,6 +91,7 @@ console.log(date); // Fri Dec 24 1993 11:11:00
 <br />
 
 ## Date Example
+
 <br />
 
 ### 일주일 후의 시간 구하기
@@ -90,6 +101,8 @@ const date = new Date(); // Sat Sep 19 2020 21:29:05 GMT+0900
 date.setDate(date.getDate() + 7);
 console.log(date); // Sat Sep 26 2020 21:29:05 GMT+0900
 ```
+
+<br />
 
 ### D-day 구하기
 날짜 간격을 구할 땐 `getTime()`함수를 사용한다. `getTime()` 함수는 1970년 1월 1일 자정부터 지난 밀리초를 구한다. 이를 사용해서 두 시간 사이의 초 간격을 구하고 다시 날짜로 바꾼다.
