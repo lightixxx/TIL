@@ -1,9 +1,16 @@
 # Array 객체
 여러 가지 자료를 쉽게 관리할 수 있게 도와주는 객체이다.
 
+## Property
+
 <br />
 
-## Addition, deletion, sorting
+### Array.length
+`length` 프로퍼티는 요소의 개수(배열의 길이)를 나타낸다.
+
+<br />
+
+## Method
 배열은 많은 데이터를 효율적으로 관리, 전달하기 위한 목적으로 고안된 데이터 타입이다. 따라서 데이터의 추가, 수정, 삭제, 정렬과 같은 일을 편리하게 할 수 있는 기능을 갖고 있다.
 
 <br />
@@ -189,7 +196,7 @@ console.log(result3); // ['apple', 'banana']
 <br />
 
 ### slice ()
-배열의 일부분을 선택해서 새로운 배열을 만듦
+배열의 일부분을 선택해서 새로운 배열을 만든다.
 - `.slice(start, end)`
 ```jsx
 const arr = [1, 2, 3, 4, 5];
@@ -197,3 +204,46 @@ const result = arr.slice(2, 5);
 
 console.log(result); // [3, 4, 5]
 ```
+
+<br />
+
+### map()
+배열 내의 모든 요소에 대해 주어진 콜백 함수를 호출한 결과를 가진 새로운 배열을 만든다. 반복문을 돌며 배열 안의 요소들을 매핑해주고 기존의 배열은 수정하지 않고 새로운 배열을 만든다. 단, 배열 안에 객체가 있는 경우 객체는 공유된다.
+
+- `arr.map((요소, 인덱스, 배열) => {return 요소});`
+   
+```jsx
+const arr = [1, 2, 3, 4, 5];
+
+let newArr = arr.map((v) => {
+  return v + 1;
+})
+
+console.log(arr); // [1, 2, 3, 4, 5]
+console.log(newArr); // [2, 3, 4, 5, 6]
+```
+
+콜백함수로 다양하게 리턴할 수 있기 때문에 자유도가 높다.
+```jsx
+const arr = [1, 2, 3, 4, 5];
+
+let result = arr.map((v) => {
+  if(v % 2 === 0) {
+    return '짝';
+  }
+  return '홀';
+})
+
+console.log(arr); // [1, 2, 3, 4, 5]
+console.log(result); // ['홀', '짝', '홀', '짝', '홀']
+```
+
+<br />
+
+### forEach()
+for문 대신 사용할 수 있다. 배열을 순회해서 각 요소에 대하여 인자로 주어진 콜백함수를 실행한다. `undefined`를 리턴한다. 콜백 함수의 매개변수를 통해 배열의 요소 값, 인덱스, 메서드를 호출한 배열(`this`)를 전달받을 수 있다.
+
+
+<br />
+
+### reduce()
