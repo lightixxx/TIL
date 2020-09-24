@@ -90,8 +90,8 @@ if(lightix.includes('ght')) {
 const lightix = 'Lightix'
 ```
 
-|메서드|설명|예|결과|
-|-----|-----------|--------|--------|
+|메서드|설명|예시|결과|
+|-----|-------------|--------|--------|
 |`charAt()`|인덱스 번호를 인수로 전달받아 해당 위치의 문자를 리턴한다.|`lightix.charAt(4);`|`'t'`|
 |`concat()`|인수로 전달한 문자열을 이어서 리턴한다.|`lightix.concat(' is handsome!');`|`"lightix is handsome!"`|
 |`toUpperCase()`|문자열의 문자를 모두 대문자로 변경한다.|`lightix.toUpperCase();`|`'LIGHTIX'`|
@@ -104,3 +104,5 @@ const lightix = 'Lightix'
 |`replace()`|찾아 바꾸기 기능처럼 첫 번째 인수로 지정된 문자열을 대상 문자열에서 찾아 두 번째 인수로 지정된 문자열로 대체한다. 기본적으로 이 동작은 첫 번째 인수로 지정된 문자열을 처음 발견했을 때 한 번만 실행된다.|`lightix.replace('i','❗️')`|`'l❗️ghtix'`|
 |`repeat()`|인수로 전달한 숫자만큼 반복해 연결한 새로운 문자열을 리턴한다. 0이면 빈 문자열을 리턴하고 음수면 에러를 발생시킨다.|`'lightix'.repeat(3);`|`'lightixlightixlightix'`|
 |`includes()`|인수로 전달한 문자열이 포함되어 있는지 검사하고 결과를 불리언 값으로 리턴한다.|`lightix.includes('hello')`|`false`|
+
+<br />

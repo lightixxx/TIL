@@ -242,8 +242,48 @@ console.log(result); // ['홀', '짝', '홀', '짝', '홀']
 
 ### forEach()
 for문 대신 사용할 수 있다. 배열을 순회해서 각 요소에 대하여 인자로 주어진 콜백함수를 실행한다. `undefined`를 리턴한다. 콜백 함수의 매개변수를 통해 배열의 요소 값, 인덱스, 메서드를 호출한 배열(`this`)를 전달받을 수 있다.
+- `forEach(function(item, index, self) { })`
+```jsx
+// for문 사용 시
+const numbers = [1, 2, 3, 4, 5];
+let pows = [];
 
+for(let i = 0; i < numbers.length; i++) {
+  pows.push(numbers[i] ** 2);
+}
+
+console.log(pows); // [1, 4, 9, 16, 25]
+```
+```jsx
+// forEach() 사용시
+const numbers = [1, 2, 3, 4, 5];
+let pows = [];
+
+numbers.forEach(item => pows.push(item ** 2));
+
+console.log(pows); // [1, 4, 9, 16, 25]
+```
 
 <br />
 
 ### reduce()
+
+- `arr.reduce((누적 값, 현재 값, 인덱스, 요소) => {return 결과}, 초기 값)`
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.reduce((acc, cur, i) => {
+  console.log(acc, cur, i);
+  return acc + cur;
+}, 0);
+
+result; // 15
+
+// acc, cur, i
+// 0 1 0
+// 1 2 1
+// 3 3 2
+// 6 4 3
+// 10 5 4
+```
