@@ -45,5 +45,7 @@ A place to organize and record what I learned today.
   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
      * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
 
-* [VSCode](https://github.com/lightixxx/TIL/blob/master/VScode)
-  - [shortcut](https://github.com/lightixxx/TIL/blob/master/VScode/shortcut.md)
+<br />
+
+* [ETC](https://github.com/lightixxx/TIL/blob/master/ETC)
+  - [VSCodeShortcut](https://github.com/lightixxx/TIL/blob/master/ETC/VScodeShortcut.md)
