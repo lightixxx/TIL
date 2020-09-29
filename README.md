@@ -25,6 +25,7 @@ A place to organize and record what I learned today.
    - [Box](https://github.com/lightixxx/TIL/blob/master/CSS/Box.md)
    - [Float](https://github.com/lightixxx/TIL/blob/master/CSS/Float.md)
    - [Position](https://github.com/lightixxx/TIL/blob/master/CSS/Position.md)
+   - [FlexBox](https://github.com/lightixxx/TIL/blob/master/CSS/FlexBox.md)
    - [Tip](https://github.com/lightixxx/TIL/blob/master/CSS/Tip.md)
 
 * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
