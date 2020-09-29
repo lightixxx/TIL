@@ -84,13 +84,14 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
-  /* stretch | flex-start | flex-end | center */
+  /* stretch | flex-start | flex-end | center | baseline */
 }
 ```
 `flex-direction: row;`에서는 cross axis가 위쪽에서 아래쪽으로 흐르기 때문에
 - flex-start: 위쪽 정렬이 된다.
 - flex-end: 아래쪽 정렬이 된다.
 - center: 가운데 정렬이 된다.
+- baseline: baseline(텍스트 아래 줄)을 기준으로 정렬이 된다.
 
 <br />
 
@@ -128,23 +129,29 @@ flex의 영향을 받은 자식요소에게 주는 속성.
 <br />
 
 ### flex-grow
-정수 값을 주어 컨텐츠 너비보다 커질 때 원래 컨텐츠를 제외한 여백을 나눠갖는다.
+양의 정수 값을 주어 컨텐츠 너비보다 커질 때 원래 컨텐츠를 제외한 여백을 나눠갖는다. flex-item에 `flex-grow: 5;` 를 주면 다른 flex-item의 5배 너비를 갖는다.
 
 <br />
 
 ### flex-basis
-정수 값을 주어 원래 컨텐츠가 점유하는 비율을 결정한다.
+flex-item의 너비 기본값을 px, % 등의 단위로 지정해 원래 컨텐츠가 점유하는 비율을 결정한다.
 
 <br />
 
 ### flex-shrink
-정수 값을 주어 컨텐츠 너비보다 작아질 때 원래 컨텐츠를 제외한 여백을 나눠 갖는다.
+양의 정수 값을 주어 컨텐츠 너비보다 작아질 때 원래 컨텐츠를 제외한 여백을 나눠 갖는다. 기본값은 1이고, 0을 지정하면 축소가 해제되어 원래의 너비를 유지한다.
 
 <br />
 
 ### align-self
-자식요소 각각 다른 정렬을 원할 때 사용하는 프로퍼티이다. `flex-start`, `flex-end`, `center`를 사용할 수 있다.
+자식요소 각각 다른 정렬을 원할 때 사용하는 프로퍼티이다. 
+```css
+.flex-item {
+  align-self: auto
+  /* auto | flex-start | flex-end | center | baseline | stretch */
+}
+```
 
 <br />
 
-#### `flex-grow`, `flex-basis`, `flex-shrink` 는 축약형으로 `flex: 1`로 사용할 수 있다.
+#### `flex-grow`, `flex-basis`, `flex-shrink` 는 축약형으로 `flex: 1`로 사용할 수 있지만 W3C에서는 개별적으로 기술하는 것을 추천한다.

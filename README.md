@@ -22,6 +22,7 @@ A place to organize and record what I learned today.
    - [html](https://github.com/lightixxx/TIL/blob/master/HTML/html.md)
 
 * [CSS](https://github.com/lightixxx/TIL/blob/master/CSS)
+   - [Selector](https://github.com/lightixxx/TIL/blob/master/CSS/Selector.md)
    - [Box](https://github.com/lightixxx/TIL/blob/master/CSS/Box.md)
    - [Float](https://github.com/lightixxx/TIL/blob/master/CSS/Float.md)
    - [Position](https://github.com/lightixxx/TIL/blob/master/CSS/Position.md)
