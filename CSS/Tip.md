@@ -24,3 +24,35 @@
 
 ## line-height
 💡 &nbsp; line-height를 아무리 크게해도 텍스트는 항상 가운데에 위치한다.
+
+<br />
+
+## font-family
+💡 &nbsp; body에 font-family를 설정하면 모든 자식에게 적용된다.
+
+<br />
+
+## Typography library 
+💡 &nbsp; font-size 의 클래스명은 'fs-'로 시작하기.
+
+💡 &nbsp; font-weight 의 클래스 명은 'fw-'로 시작하기.
+
+💡 &nbsp; color의 클래스 명은 'text-'로 시작하기.
+
+💡 &nbsp; heading 태그와 strong 태그는 default font-weight이 bold이다.
+
+<br />
+
+## sr-only
+💡 &nbsp; 시각장애인들은 웹을 스크린리더로 읽기 때문에, 텍스트에 대한 정보를 어느정도 주어야한다. 다만 그 요소가 디자인을 해치거나, 일반인이 봤을 때 굳이 없어도 알 수 있을 정보일때 사용하는 것이 sr-only 클래스이다.
+```css
+.sr-only {
+	position: absolute;
+	z-index: -99999;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	opacity: 0;
+}
+```
+`position: absolute; z-index: -99999;` 두 가지로도 충분하지만, 더욱 완벽하게 사라지게 만들고 싶을 경우에 width와 height를 1px로 만들고 overflow를 hidden으로 주고 투명도도 0으로 주면 ⭐️완벽⭐️

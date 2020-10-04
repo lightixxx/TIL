@@ -165,3 +165,34 @@ text-align을 설정하는 방법
 2. italic : 기울임
 3. oblique : 기울임 ?
 
+<br />
+
+## web font
+사용자의 컴퓨터에 없는 서체를 폰트 패밀리로 작성할 경우, 기본 서체로 렌더되기 때문에 웹폰트로 사용자에게 제공해야 한다. 
+
+### web font를 사용하는 방법
+
+1. 갖다 쓰는 방법
+   - fonts.google.com 에서 폰트 선택 후 head에 link로 넣는다.
+   - css에서 body에 font-family를 적용한다.
+
+2. 직접 제공하는 방법
+   - assets/fonts 디렉토리에 폰트 파일을 넣는다.
+   - fonts.css 파일을 생성 후 @font-face {} 안에 웹폰트 스택을 작성한다.
+   - html의 head 안에 `<link style="stylesheet" href="fonts.css">`를 임베드하거나, css에서 `@import url('./fonts.css');`
+
+```css
+/* fonts.css 작성법 */
+@font-face {
+  font-family: 'myWebFont';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/myWebFont.eot'); /* IE9 Compat Modes */
+  src: url('./assets/fonts/myWebFont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/myWebFont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/myWebFont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('./assets/fonts/myWebFont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/myWebFont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+```
+

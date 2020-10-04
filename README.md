@@ -29,6 +29,7 @@ A place to organize and record what I learned today.
    - [FlexBox](https://github.com/lightixxx/TIL/blob/master/CSS/FlexBox.md)
    - [MediaQuery](https://github.com/lightixxx/TIL/blob/master/CSS/MediaQuery.md)
    - [Typography](https://github.com/lightixxx/TIL/blob/master/CSS/Typography.md)
+   - [Background](https://github.com/lightixxx/TIL/blob/master/CSS/Background.md)
    - [Tip](https://github.com/lightixxx/TIL/blob/master/CSS/Tip.md)
 
 * [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
