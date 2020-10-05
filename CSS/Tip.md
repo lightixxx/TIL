@@ -56,3 +56,13 @@
 }
 ```
 `position: absolute; z-index: -99999;` 두 가지로도 충분하지만, 더욱 완벽하게 사라지게 만들고 싶을 경우에 width와 height를 1px로 만들고 overflow를 hidden으로 주고 투명도도 0으로 주면 ⭐️완벽⭐️
+
+<br />
+
+## Hover interaction
+💡 &nbsp; 링크나 버튼 요소에 interaction을 적용할 때는 보통 250ms로 한다.
+
+<br />
+
+## Width
+💡 &nbsp; `width: 0;` 일 때는 어떤 단위도 붙이지 않는 것이 관례이다.
