@@ -179,7 +179,7 @@ text-align을 설정하는 방법
 2. 직접 제공하는 방법
    - assets/fonts 디렉토리에 폰트 파일을 넣는다.
    - fonts.css 파일을 생성 후 @font-face {} 안에 웹폰트 스택을 작성한다.
-   - html의 head 안에 `<link style="stylesheet" href="fonts.css">`를 임베드하거나, css에서 `@import url('./fonts.css');`
+   - html의 head 안에 `<link rel="stylesheet" href="fonts.css">`를 임베드하거나, css에서 `@import url('./fonts.css');`
 
 ```css
 /* fonts.css 작성법 */

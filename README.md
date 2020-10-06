@@ -32,6 +32,8 @@ A place to organize and record what I learned today.
    - [Background](https://github.com/lightixxx/TIL/blob/master/CSS/Background.md)
    - [Transition](https://github.com/lightixxx/TIL/blob/master/CSS/Transition.md)
    - [Animation](https://github.com/lightixxx/TIL/blob/master/CSS/Animation.md)
+   - [GridSystem](https://github.com/lightixxx/TIL/blob/master/CSS/GridSystem.md)
+   - [Bootstrap](https://github.com/lightixxx/TIL/blob/master/CSS/Bootstrap.md)
    - [Etc](https://github.com/lightixxx/TIL/blob/master/CSS/Etc.md)
    - [Tip](https://github.com/lightixxx/TIL/blob/master/CSS/Tip.md)
 
