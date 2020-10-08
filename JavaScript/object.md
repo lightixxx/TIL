@@ -352,8 +352,6 @@ console.log(numbers.sum);
 
 <br />
 
-
-
 자바스크립트는 런타임 때 동적으로 타입이 결정되는 언어이기 때문에, 나중에 프로퍼티를 추가 및 삭제할 수 있다. 단, 유지보수 측면에서는 좋지 않은 습관이다.
 ```jsx
 lightix.hasJob = false;
@@ -365,8 +363,11 @@ console.log(lightix.hasJob); // undefined
 
 <br />
 
-## Property value shorthand (단축 속성 값)
+## prototype
 
+
+
+<br />
 
 
 
