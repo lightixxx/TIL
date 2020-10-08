@@ -363,17 +363,8 @@ console.log(lightix.hasJob); // undefined
 
 <br />
 
-## prototype
-
-
-
-<br />
-
-
-
 
 #### 출처
 
-[드림코딩 엘리](https://youtu.be/1Lbr29tzAA8)
-
-[poiemaweb](https://poiemaweb.com/js-object)
+- [드림코딩 엘리](https://youtu.be/1Lbr29tzAA8)
+- [poiemaweb](https://poiemaweb.com/js-object)
