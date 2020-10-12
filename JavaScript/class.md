@@ -65,3 +65,10 @@ class User {
 const user1 = new User('Kiwoong', 'lee', -1);
 console.log(user1.age);
 ```
+age라는 getter를 정의하는 순간 this.age는 메모리에 올라가있는 데이터를 읽어오는 것이 아니라 getter를 호출하게 된다.
+
+그리고 age라는 setter를 정의하는 순간 '= age'로 값을 할당할 때, 바로 메모리에 값을 할당하는 것이 아니라 setter를 호출하게 된다.
+
+곧 setter 안에서 전달된 value를 this.age에 할당할 때, 메모리에 값을 업데이트하는 것이 아니라 setter를 호출하게 된다. 
+
+따라서 세터를 무한 호출하는 것을 방지하기 위해 getter와 setter안에서 쓰여지는 변수의 이름을 this._age처럼 다르게 만들어야한다.
