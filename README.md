@@ -46,6 +46,7 @@ A place to organize and record what I learned today.
   - [function](https://github.com/lightixxx/TIL/blob/master/JavaScript/function.md)
   - [object](https://github.com/lightixxx/TIL/blob/master/JavaScript/object.md)
   - [constructorFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/constructorFunction.md)
+  - [prototype](https://github.com/lightixxx/TIL/blob/master/JavaScript/prototype.md)
   - [class](https://github.com/lightixxx/TIL/blob/master/JavaScript/class.md)
   - [builtInObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject)
     * [String](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/String.md)
