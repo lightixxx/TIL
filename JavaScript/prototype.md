@@ -32,8 +32,7 @@
 <br />
 
 ## prototype chain
-
-자바스크립트는 프로토타입으로 모든 객체를 연결해서 표현할 수 있는데, 그것을 **프로토타입 체인**이라고 한다.
+특정 객체의 프로퍼티나 메서드에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티나 메서드가 없다면 [[Prototype]]이 가리키는 링크를 따라 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티나 메서드를 차례대로 검색한다. 그것을 **프로토타입 체인**이라고 한다.
 ```jsx
 function Person(name, age) {
   this.name = name;
@@ -53,9 +52,36 @@ console.log(Person.prototype.constructor // [Function: Person]
 console.log(Person.hello); // undefined
 console.log(Person.prototype.hello); // undefined
 ```
-prototype은 객체가 생성될 때 사용할 수 있는 어떤 공간안에 있는 무언가..?
 
 <br />
+
+## 프로토타입을 이용한 객체 확장
+```jsx
+function Person() {}
+
+Person.prototype.hello = function() {
+  console.log('hello');
+}
+
+function Korean(region) {
+  this.region = region;
+  this.where = function() {
+    console.log('where', this.region);
+  };
+}
+
+Korean.prototype = Person.prototype;
+
+const k = new Korean('Seoul');
+
+k.hello(); // hello
+k.where(); // hello Seoul
+
+console.log(k instanceof Korean); // true
+console.log(k instanceof Person); // true
+console.log(k instanceof Object); // true
+```
+`prototype`을 활용해서 부모의 객체를 자식의 객체 어딘가에 프로퍼티로 할당할 수 있다.
 
 
 ##### 출처
