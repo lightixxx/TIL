@@ -55,7 +55,53 @@ lightix.speak(); // ligthix: hello!
 <br />
 
 ## Getter & Setter
-클래스를 사용하는 사용자가 잘못 사용해도 방어적인 자세로 만들어 주는 것
+클래스를 사용하는 사용자가 잘못 사용해도 방어적인 자세로 만들어 주는 접근자 프로퍼티이다.
+
+<br />
+
+### getter
+`getter` 는 클래스 필드에 접근할 때마다 클래스 필드의 값을 조작하는 행위가 필요할 때 사용한다. 메서드 이름 앞에 `get`키워드를 사용해서 정의한다. 이때 메서드 이름은 클래스 필드 이름처럼 사용된다. 즉, `getter`는 호출하는 것이 아니라 프로퍼티처럼 참조하는 형식으로 사용하며, 참조할 때 메서드가 호출된다.
+
+- getter는 무언가를 얻을 때 사용하므로 반드시 무언가를 리턴해야한다.
+- getter는 접근할 때 메서드가 호출된다.
+
+```jsx
+class A {
+	_name = 'no name';
+
+	get name() {
+		return this._name;
+	}
+}
+
+const a = new A();
+console.log(a); // A {_name: 'no name'};
+```
+
+<br />
+
+### setter
+`setter` 는 클래스 필드에 값을 할당할 때마다 클래스 필드의 값을 조작하는 행위가 필요할 때 사용한다. 메서드 이름 앞에 `set`키워드를 사용해서 정의한다. 이때 메서드 이름은 클래스 필드 이름처럼 사용된다. 즉, `setter`는 호출하는 것이 아니라 프로퍼티처럼 값을 할당하는 형식으로 사용하며, 할당할 때 메서드가 호출된다.
+
+```jsx
+class A {
+	_name = 'no name';
+
+	get name() {
+		return this._name;
+	}
+
+	set name(value) {
+		this._name = value + '!!!';
+	}
+}
+
+const a = new A();
+a.name = 'lightix'; // A {_name: 'lightix!!!'}
+```
+
+<br />
+
 ```jsx
 class User {
 	constructor(firstName, lastName, age) {
@@ -103,6 +149,42 @@ age라는 getter를 정의하는 순간 this.age는 메모리에 올라가있는
 
 따라서 세터를 무한 호출하는 것을 방지하기 위해 getter와 setter안에서 쓰여지는 변수의 이름을 this._age처럼 다르게 만들어야한다.
 
+<br />
+
+## static method
+클래스의 정적 메서드를 정의할 때 `static` 키워드를 사용한다. 
+- 정적 메서드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다.
+- 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
+- 정적 메서드는 `this`를 사용할 수 없다.
+- 정적 메서드 내부에서 `this`는 인스턴스가 아닌 클래스 자신을 가리킨다.
+- 정적 메서드는 전역에서 사용할 유틸리티 함수를 생성할 때 주로 사용한다.
+```jsx
+class Foo {
+	constructor(name) {
+		this.name = name;
+	}
+
+	static staticMethod() {
+		return 'staticMethod';
+	}
+}
+
+console.log(Foo.staticMethod()); // OK !
+
+const foo = new Foo('lightix');
+console.log(foo.staticMethod()); // Error !
+```
+정적 메서드는 인스턴스로 호출할 수 없고, 클래스 이름으로 호출한다.
+
+<br />
+
+## 클래스 상속
+코드 재사용 관점에서 클래스 상속은 매우 유용하다. 새롭게 정의할 클래스가 기존에 있는 클래스와 유사하다면, 상속을 통해 그대로 사용하되 다른 점만 구현할 수 있다.
+
+<br />
+
+### extends 
+`extends` 키워드는 부모 클래스를 상속받는 자식 클래스를 정의할 때 사용한다.
 
 
 
