@@ -186,6 +186,11 @@ console.log(foo.staticMethod()); // Error !
 ### extends 
 `extends` 키워드는 부모 클래스를 상속받는 자식 클래스를 정의할 때 사용한다.
 
+<br />
+
+### super
+`super` 키워드는 부모 클래스를 참조할 때 또는 부모 클래스의 constructor를 호출할 때 사용한다.
+
 
 
 ##### 출처
