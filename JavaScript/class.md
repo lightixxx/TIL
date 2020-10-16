@@ -151,8 +151,8 @@ age라는 getter를 정의하는 순간 this.age는 메모리에 올라가있는
 
 <br />
 
-## static method
-클래스의 정적 메서드를 정의할 때 `static` 키워드를 사용한다. 
+## static
+클래스의 정적 변수나 메서드를 정의할 때 `static` 키워드를 사용한다. 
 - 정적 메서드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다.
 - 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
 - 정적 메서드는 `this`를 사용할 수 없다.
@@ -163,18 +163,20 @@ class Foo {
 	constructor(name) {
 		this.name = name;
 	}
+	static age = 28;
 
-	static staticMethod() {
-		return 'staticMethod';
+	static hello() {
+		return 'hello';
 	}
 }
 
 console.log(Foo.staticMethod()); // OK !
+console.log(Foo.age); // OK !
 
 const foo = new Foo('lightix');
 console.log(foo.staticMethod()); // Error !
 ```
-정적 메서드는 인스턴스로 호출할 수 없고, 클래스 이름으로 호출한다.
+정적 메서드는 인스턴스로 호출할 수 없고, **클래스 이름으로 호출**한다.
 
 <br />
 
@@ -185,12 +187,121 @@ console.log(foo.staticMethod()); // Error !
 
 ### extends 
 `extends` 키워드는 부모 클래스를 상속받는 자식 클래스를 정의할 때 사용한다.
+```jsx
+class Parent {
+	name = 'lightix';
+
+	hello() {
+		console.log('hello', this.name);
+	}
+}
+
+class Child extends Parent { }
+
+const p = new Parent();
+const c = new Child();
+
+console.log(p); // Parent{name: 'lightix'};
+console.log(c); // Child{name: 'lightix'};
+
+c.hello(); // hello lightix
+c.name = 'LIGHTIX';
+c.hello(); // hello LIGHTIX
+```
+<br />
+
+### override
+클래스의 상속 멤버 변수 및 함수 오버라이딩, 추가
+부모에서 구현된 변수나 함수가 자식에게 같은 이름으로 구현을 시키는 것을 override 된다고 한다.
+```jsx
+class Parent {
+	name = 'lightix';
+
+	hello() {
+		console.log('hello', this.name);
+	}
+}
+
+class Child extends Parent {
+	age = 28;
+
+	hello() {
+		console.log('hello', this.name, this.age);
+	}
+}
+
+const p = new Parent();
+const c = new Child();
+
+console.log(p); // Parent {name: 'lightix'}
+console.log(c); // Child {name: 'lightix', age: 28}
+
+c.hello(); // hello lightix 28
+c.name = 'LIGHTIX';
+c.hello(); // hello LIGHTIX 28
+```
+자식에게만 age가 추가된다. 또한 같은 이름으로 구현된 `hello()`는 덮어 씌워졌기 때문에 Child에서 추가된 `hello()`가 실행된다.
 
 <br />
 
 ### super
 `super` 키워드는 부모 클래스를 참조할 때 또는 부모 클래스의 constructor를 호출할 때 사용한다.
+```jsx
+class Parent {
+	name;
 
+	constructor(name) {
+		this.name = name;
+	}
+
+	hello() {
+		console.log('hello', this.name);
+	}
+}
+
+class Child extends Parent {
+	age;
+
+	constructor(name, age) {
+		super(name);
+		this.age = age;
+	}
+
+	hello() {
+		console.log('hello', this.name, this.age);
+	}
+}
+
+const p = new Parent('lightix');
+const c = new Child('lightix', 28);
+
+console.log(p); // Parent {name: 'lightix'} 
+console.log(c); // Child {name: 'lightix', age: 28}
+
+c.hello(); // hello lightix 28
+```
+
+<br />
+
+### static 상속
+static 변수도 상속이 가능하다.
+```jsx
+class Parent {
+	static age = 28;
+}
+
+class Child extends Parent { }
+
+console.log(Parent.age); // 28
+console.log(Child.age); // 28
+```
+
+<br />
+
+Babel을 사용하거나, 클래스를 사용할 수 있는 런타임 환경에서 작업을 하게 될 것이기 때문에 더 깊이 배울 필요가 있다.
+
+
+<br />
 
 
 ##### 출처
