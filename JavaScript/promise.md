@@ -19,6 +19,7 @@ const promise = new Promise((resolve, reject) => {
 ```
 Promise는 비동기 처리가 성공했는지 실패했는지 등의 상태 정보를 갖는다.
 
+Promise 생성자 함수가 인자로 전달받은 콜백 함수는 내부에서 비동기 처리 작업을 수행한다. 이때 비동기 처리가 성공하면 콜백 함수의 인자로 전달받은 resolve 함수를 호출한다. 이때 프로미스는 'fulfilled' 상태가 된다. 비동기 처리가 실패하면 reject 함수를 호출한다. 이때 프로미스는 'rejected' 상태가 된다.
 
 ## executor
 executor 함수는 resolve 와 reject를 인자로 갖는다.
