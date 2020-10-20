@@ -27,4 +27,3 @@ executor 함수는 resolve 와 reject를 인자로 갖는다.
 
 ##### 출처
 - [poiemaWeb](https://poiemaweb.com/es6-class)
-- fastcampus 온라인강의
