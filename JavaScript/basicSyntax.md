@@ -418,7 +418,7 @@ a = 20; // OK
 
 <br />
 
-### 출처
+##### 출처
 
-##### [Poiema Web](https://poiemaweb.com/js-data-type-variable)
-##### [Dream Coding Ellie](https://youtu.be/OCCpGh4ujb8)
+- [Poiema Web](https://poiemaweb.com/js-data-type-variable)
+- [Dream Coding Ellie](https://youtu.be/OCCpGh4ujb8)

@@ -256,3 +256,4 @@ main();
 
 ##### 출처
 - [패스트캠퍼스 온라인강의](https://www.fastcampus.co.kr/)
+- [Poiema Web](https://poiemaweb.com/js-data-type-variable)
