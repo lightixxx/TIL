@@ -1,6 +1,7 @@
 # async function
 Promise를 기반으로 AsyncFunction 객체를 반환하는 하나의 비동기 함수를 정의한다.
 
+<br />
 
 ## Promise 객체가 resolve 될 때 async
 ```jsx
