@@ -186,6 +186,10 @@ function hello() {}
 <br />
 
 ## Data-type (자료형)
+<img alt="datatype" src="https://user-images.githubusercontent.com/59480963/97424064-86d4b900-1953-11eb-84f6-8e788a6c0b32.png" />
+
+<br />
+<br />
 
 ### Dynamic typing
 
