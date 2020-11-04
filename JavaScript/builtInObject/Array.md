@@ -162,6 +162,17 @@ console.log(lastIndexArr); // 5
 
 <br />
 
+### find( )
+주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환한다. 요소가 없다면 `undefined`를 반환한다.
+```jsx
+const arr = [1, 2, 5, 8, 13, 22, 55];
+const arr2 = arr.find(elem => elem > 11 );
+
+console.log(arr2); // 13
+```
+
+<br />
+
 ## API (Application Programming Interface)
 그 밖에 유용한 API
 
