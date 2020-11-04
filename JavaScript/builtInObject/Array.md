@@ -298,3 +298,136 @@ result; // 15
 // 6 4 3
 // 10 5 4
 ```
+<br />
+
+### 유용한 배열 함수 10가지 (with.드림코딩 엘리)
+<br />
+
+#### 1. 주어진 배열을 string으로 변환하기 
+  - `join(seperator? : string);`
+```jsx
+const fruits = ['apple', 'banana', 'orange'];
+const result = fruits.join();
+console.log(result); // apple, banana, orange
+```
+
+<br />
+
+#### 2. 주어진 string을 배열로 변환하기 
+  - `split(seperator: string, limit?: number): string[];`
+```jsx
+const fruits = 'apple, banana, orange';
+const result = fruits.split(', ');
+console.log(result); // ['apple', 'banana', 'orange']
+```
+<br />
+
+#### 3. 주어진 배열의 순서를 거꾸로 만들기
+  - `reverse(seperator? : string);`
+  - 배열 자체 값도 변하고, 변화된 배열을 `return`한다.
+```jsx
+const array = [1, 2, 3, 4, 5];
+const result = array.reverse();
+console.log(result); // apple, banana, orange
+```
+
+<br />
+
+#### 4. 주어진 배열에서 요소를 제거해서 새로운 배열 만들기
+  - `slice(start? : number, end? : number);`
+  - `splice()`는 배열 자체를 수정하지만, `slice()`는 수정하지 않는다.
+```jsx
+const array = [1, 2, 3, 4, 5];
+const result = array.slice(2, 5);
+console.log(result); // [3, 4, 5]
+console.log(array); // [1, 2, 3, 4, 5]
+```
+
+<br />
+<br />
+
+```jsx
+class Student {
+  constructor(name, age, enrolled, score) {
+    this.name = name;
+    this.age = age;
+    this.enrolled = enrolled;
+    this.score = score;
+  }
+}
+
+const students = [
+  new Student('A', 29, true, 45),
+  new Student('B', 28, false, 80),
+  new Student('C', 30, true, 90),
+  new Student('D', 40, false, 66),
+  new Student('E', 18, true, 88),
+];
+```
+
+#### 5. 학생의 점수가 90점인 학생 찾기
+  - `find(predicate: (), thisArg?);`
+  - predicate에는 불리언 값으로 정의될 수 있는 callback 함수를 받는다.
+  - predicate에 전달된 함수가 `true`일 경우 찾아진 요소를 `return`한다.
+```jsx
+const result = students.find(student => student.score === 90);
+```
+
+<br />
+
+#### 6. 수업에 등록한 학생만 골라내기
+  - `filter(callback);`
+  - callback 함수가 `true`인 것들만 모아서 배열을 리턴한다.
+```jsx
+const result = students.filter(student => student.enrolled);
+```
+
+<br />
+
+#### 7. 학생들의 점수만 뽑아서 배열로 만들기
+  - `map(callback);`
+  - 배열 안에 들어있는 모든 요소를 전달한 callback 함수를 거쳐서 다른 것으로 변환해 주는 것을 말한다.
+```jsx
+const result = students.map(student => student.score);
+```
+<br />
+
+#### 8. 점수가 50점 이하인 학생이 있는지 확인하기
+  - `some(callback);`
+  - 배열의 요소 중, callback 함수가 `true`가 되는 요소가 한 개라도 있으면 `true`를 `return`하는 API이다.
+  - 비슷하게 `every()`는 모든 요소가 `true`가 되어야 `true`를 `return`한다.
+```jsx
+const result = students.some(student => student.score < 50);
+```
+<br />
+
+#### 9. 학생들의 평균 점수 구하기
+  - `reduce(callback(prev, curr), initialValue?);`
+  - callback 함수나, initialValue를 전달하고, 배열의 요소마다 호출이 된다.
+  - callback 함수에서 누적된 결과값을 `return`한다.
+```jsx
+const result = students.reduce((prev, curr) => prev + curr.score / students.length, 0);
+```
+<br />
+
+#### 10. 모든 점수를 string으로 변환하기
+  - `map()`은 새로 만들어진 배열 자체를 `return`하기 때문에, API들을 섞어서 활용할 수 있다.
+```jsx
+const result = students.map(student => student.score).join();
+```
+
+<br />
+
+#### bonus. 모든 점수를 string으로 변환하고 점수순대로 정렬하기
+  - `sort()`
+  - callback 함수에는 a, b 즉, 이전 값과 현재 값이 전달이 되는데, 음수를 `return`하게 되면, 처음 오는 값이 다음에 오는 값보다 작다고 간주되어서 정렬이 된다.
+```jsx
+const result = students.map(student => student.score)
+.sort((a, b) => a - b)
+.join();
+```
+
+<br />
+
+##### 출처
+- [드림코딩엘리](https://youtu.be/3CUjtKJ7PJg)
