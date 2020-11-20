@@ -69,7 +69,7 @@ console.log(arr); // [1, 2, 2.5, 3, 4, 5]
 <br />
 
 ## Deletion
-
+배열의 요소를 제거하는 방법.
 <br />
 
 ### shift( )
@@ -96,7 +96,7 @@ console.log(arr); // [1, 2, 3]
 ```
 <br />
 
-#### 📌 shift / unshift는 push / pop보다 느리다 !
+#### 📌 shift / unshift는 push / pop보다 느리다.
 ##### push / pop은 맨 뒤에 추가,제거만 하기 때문에 다른 원소의 인덱스에 영향이 없다. 하지만 shift / unshift는 앞에 추가,제거 되기 때문에 모든 원소의 인덱스가 바뀌기 때문에 처리 속도가 느리다.
 
 <br />
@@ -132,7 +132,7 @@ console.log(arr); // [4, 1, 2, 5, 3]
 
 
 ## Searching
-배열의 요소를 찾아서 다양한 처리를 할 수 있다
+배열의 요소를 찾아서 다양한 처리를 할 수 있다.
 
 <br />
 
