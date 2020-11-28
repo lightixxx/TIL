@@ -65,7 +65,6 @@ A place to organize and record what I learned today.
   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
      * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
 * [React](https://github.com/lightixxx/TIL/blob/master/React)
-  - [Intro](https://github.com/lightixxx/TIL/blob/master/React/Intro.md)
   - [JSX](https://github.com/lightixxx/TIL/blob/master/React/JSX.md)
   - [Create-react-app](https://github.com/lightixxx/TIL/blob/master/React/Create-react-app.md)
 
