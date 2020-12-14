@@ -1,6 +1,6 @@
 # 👨🏻‍💻 &nbsp;Today I Learned
 
-A place to organize and record what I learned today.
+### A place to organize and record what I learned today.
 
 - All thing are difficult before they are easy.
 - Practice makes perfect.
@@ -65,8 +65,11 @@ A place to organize and record what I learned today.
   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
      * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
 * [React](https://github.com/lightixxx/TIL/blob/master/React)
+  - [beginReact](https://github.com/lightixxx/TIL/blob/master/React/beginReact.md)
   - [JSX](https://github.com/lightixxx/TIL/blob/master/React/JSX.md)
-  - [Create-react-app](https://github.com/lightixxx/TIL/blob/master/React/Create-react-app.md)
+  - [props](https://github.com/lightixxx/TIL/blob/master/React/props.md)
+  - [conditionalRendering](https://github.com/lightixxx/TIL/blob/master/React/conditionalRendering.md)
+  - [useState](https://github.com/lightixxx/TIL/blob/master/React/useState.md)
 
 
 <br />
