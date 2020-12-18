@@ -19,3 +19,10 @@
 - state에 저장된 데이터가 변경이 되면 HTML이 자동으로 재렌더링이 된다. 
 
 그냥 변수로 저장한 데이터는 변경이 되어도 자동 재렌더링이 안되고 새로고침해야 렌더링 된다. 예를 들어 제목을 정렬하거나, 수정하거나해도 새로고침 없이 페이지를 부드럽게 재렌더링해준다.
+
+<br />
+<br />
+<br />
+
+##### 출처
+- [코딩애플](https://online.codingapple.com/unit/react4-setstate-usestate-onclick-eventhandler/?id=2305)
