@@ -64,12 +64,18 @@
     * [globalObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/globalObject.md)
   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
      * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
+     * [이자율 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/interestRate.md)
+     * [커피양 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/refillCoffee.md)
+
+
 * [React](https://github.com/lightixxx/TIL/blob/master/React)
   - [beginReact](https://github.com/lightixxx/TIL/blob/master/React/beginReact.md)
   - [JSX](https://github.com/lightixxx/TIL/blob/master/React/JSX.md)
-  - [props](https://github.com/lightixxx/TIL/blob/master/React/props.md)
   - [conditionalRendering](https://github.com/lightixxx/TIL/blob/master/React/conditionalRendering.md)
   - [useState](https://github.com/lightixxx/TIL/blob/master/React/useState.md)
+  - [changeState](https://github.com/lightixxx/TIL/blob/master/React/changeState.md)
+  - [component](https://github.com/lightixxx/TIL/blob/master/React/component.md)
+  - [props](https://github.com/lightixxx/TIL/blob/master/React/props.md)
 
 
 <br />
