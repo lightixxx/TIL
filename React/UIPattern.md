@@ -172,6 +172,8 @@ function App() {
 ```
 map 반복문을 쓸 때, `i`라는 파라미터를 두번째로 추가하면 반복문이 돌면서 0, 1, 2, 3... 이렇게 하나씩 증가하는 정수를 쓸 수 있다. 그걸 이용해서 `누른제목변경(i)`로 입력했다.
 
+> map 반복문을 쓰면 콘솔창에 warning이 뜬다. 이유는 key={} 속성을 안적어서 나타난다. 리액트는 반복문을 돌린 HTML 요소엔 꼭 key={}를 적도록 권장한다. key={} 안에는 0, 1, 2, 3... 처럼 하나씩 증가하는 변수를 넣으면 되는데, 두번째 파라미터로 넣었던 i를 넣으면 된다.
+
 <br />
 
 ### 결론
@@ -187,4 +189,4 @@ UI만드는 방법은
 
 ##### 출처
 
-- [코딩애플](https://online.codingapple.com/unit/react4-setstate-usestate-onclick-eventhandler/?id=2305)
+- [코딩애플](https://online.codingapple.com)
