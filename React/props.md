@@ -122,6 +122,227 @@ export default Wrapper;
 ```
 
 <br />
+
+## 중첩된 여러 component에 state 전송하는 방법
+1. 하위 컴포넌트에 전달하 듯 props 반복
+2. Context
+3. Redux
+
+<br />
+
+### 2. Context 문법으로 props 없이 state 공유
+
+```jsx
+(App.js)
+
+import { useState, useContext } from 'react';
+
+let stockContext = React.createContext();
+
+function App() {
+  let [stock, setStock] = useState([1, 2, 3]);
+
+  return (
+    ...
+  )
+}
+```
+같은 state값을 공유하기 위해선 `createContext()` 함수를 이용해서 변수를 만들어야 한다. 그 변수는 특별한 `<컴포넌트>`가 된다.
+
+```jsx
+(App.js)
+
+import { useState, useContext } from 'react';
+
+let stockContext = React.createContext();
+
+function App() {
+  let [stock, setStock] = useState([1, 2, 3]);
+
+  return (
+    <>
+      <stockContext.Provider value={stock}>
+        <state를공유할컴포넌트 />
+      </stockContext.Provider>
+    </>
+  )
+}
+```
+위에서 만든 특별한 컴포넌트로 state 값을 공유할 컴포넌트들을 `<범위변수></범위변수>` 로 전부 감싸고 속성에 `value={state이름}`을 넣어 공유할 state를 전달하면 된다.
+
+그렇게 되면 `<범위변수></범위변수>` 안에 있는 모든 HTML과 컴포넌트는 해당 state를 이용할 수 있다.
+
+```jsx
+(App.js)
+
+import { useState, useContext } from 'react';
+
+function state를공유할컴포넌트() {
+  let stock = useContext(stockContext);
+
+  return (
+    ...
+  )
+}
+```
+마지막으로 `useContext()`라는 Hook을 이용해서 사용을 원하는 context를 불러와야 한다. 변수 `stock`은 stockContext에 들어있는 state를 담고 있게 되고, 그걸 통해 state를 사용할 수 있다.
+
+Component 구조가 간단하다면 props를 쓰는게 더 편할 수 있다. Context는 Component가 복잡해질수록 편하다.
+
+
+```jsx
+(App.js)
+
+import { useState, useContext } from 'react';
+
+let stockContext = React.createContext();
+
+function App() {
+  let [stock, setStock] = useState([1, 2, 3]);
+
+  return (
+    <>
+      <stockContext.Provider value={stock}>
+        <state를공유할컴포넌트 />
+      </stockContext.Provider>
+    </>
+  )
+}
+
+function state를공유할컴포넌트() {
+  let stock = useContext(stockContext);
+
+  return (
+    ...
+    <Test />
+  )
+}
+
+function Test() {
+  return <p> state </p>
+}
+```
+하위의 하위 컴포넌트(Test)를 만든다고 가정해보자.
+
+간단히 Context 문법을 요약하자면
+1. `React.createContext()` 로 범위 설정하기
+2. 전송을 원하는 컴포넌트를 `<범위 value={state명}> </범위>`로 감싸기
+3. state 사용을 원하는 컴포넌트는 `useContext(범위)`를 이용
+
+1, 2 번은 이미 세팅이 됐기 때문에 3번만 하면 된다.
+
+```jsx
+(App.js)
+
+import { useState, useContext } from 'react';
+
+let stockContext = React.createContext();
+
+function App() {
+  let [stock, setStock] = useState([1, 2, 3]);
+
+  return (
+    <>
+      <stockContext.Provider value={stock}>
+        <state를공유할컴포넌트 />
+      </stockContext.Provider>
+    </>
+  )
+}
+
+function state를공유할컴포넌트() {
+  let stock = useContext(stockContext);
+
+  return (
+    ...
+    <Test />
+  )
+}
+
+function Test() {
+  let stock = useContext(stockContext); // Here!
+  return <p> stock : {stock} </p>
+}
+```
+처음 세팅만 귀찮을 뿐 useContext 받아오는 코드 한 줄이면 state를 간단히 받아와서 사용할 수 있다.
+
+<br />
+
+#### 컴포넌트가 다른 파일에 있을 경우
+컴포넌트가 다른 파일에 있을 경우에도 사용법 똑같지만, 세팅이 하나 더 필요하다.
+
+```jsx
+(App.js)
+
+let stockContext = React.createContext();
+
+function App(){
+  let [stock, setStock] = useState([1,2,3]);
+
+  return (
+    ...
+    <stockContext.Provider value={stock}>
+      <Other />
+    </stockContext.Provider>
+  )
+}
+```
+```jsx
+(Other.js)
+
+function Other(){
+  let 재고 = useContext(재고context);  // Error !
+
+  return (
+    ...
+    <stockContext.Provider value={stock}>
+      <Other />
+    </stockContext.Provider>
+  )
+}
+```
+Other.js에서 useContext를 사용하려고 하면 정의되지 않았다고 에러가 뜬다.(App.js에 있으니까)
+
+간단하게 변수를 App.js에서 export하고, Other.js에서 import해주면 된다.
+
+```jsx
+(App.js)
+
+export let stockContext = React.createContext();
+
+function App(){
+  let [stock, setStock] = useState([1,2,3]);
+
+  return (
+    ...
+    <stockContext.Provider value={stock}>
+      <Other />
+    </stockContext.Provider>
+  )
+}
+```
+```jsx
+(Other.js)
+
+import {stockContext} from './App.js';
+
+function Other(){
+  let 재고 = useContext(재고context);
+
+  return (
+    ...
+    <stockContext.Provider value={stock}>
+      <Other />
+    </stockContext.Provider>
+  )
+}
+```
+
+> export 키워드는 변수나 함수 선언 왼쪽에 작성하면, 다른 파일에서 `import {변수명 혹은 함수명}` 로 가져와서 쓸 수 있다.
+
+
+
+<br />
 <br />
 <br />
 
