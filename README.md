@@ -76,6 +76,15 @@
   - [changeState](https://github.com/lightixxx/TIL/blob/master/React/changeState.md)
   - [component](https://github.com/lightixxx/TIL/blob/master/React/component.md)
   - [props](https://github.com/lightixxx/TIL/blob/master/React/props.md)
+  - [UIPattern](https://github.com/lightixxx/TIL/blob/master/React/UIPattern.md)
+  - [input](https://github.com/lightixxx/TIL/blob/master/React/input.md)
+  - [classSyntax](https://github.com/lightixxx/TIL/blob/master/React/classSyntax.md)
+  - [router](https://github.com/lightixxx/TIL/blob/master/React/router.md)
+  - [styled-components](https://github.com/lightixxx/TIL/blob/master/React/styled-components.md)
+  - [SASS](https://github.com/lightixxx/TIL/blob/master/React/SASS.md)
+  - [useEffect](https://github.com/lightixxx/TIL/blob/master/React/useEffect.md)
+  - [Ajax](https://github.com/lightixxx/TIL/blob/master/React/Ajax.md)
+  - [animation](https://github.com/lightixxx/TIL/blob/master/React/animation.md)
 
 
 <br />
