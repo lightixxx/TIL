@@ -15,10 +15,10 @@ GET 요청은 브라우저 주소창에 google.com을 입력하면 그게 GET요
 <br />
 
 ## axios 설치
-```shell
+```powershell
 yarn add axios
 ```
-```shell
+```powershell
 npm install axios
 ```
 먼저, axios 설치를 한다.

@@ -8,10 +8,10 @@ react에 애니메이션을 넣는 방법은 CSS파일에 애니메이션을 제
 
 ## install
 
-```shell
+```powershell
 npm install react-transition-group
 ```
-```shell
+```powershell
 yarn add react-transition-group
 ```
 ```jsx

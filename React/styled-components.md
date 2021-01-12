@@ -11,10 +11,10 @@ JS 안에 CSS를 작성하는 것 중 가장 인기 있는 라이브러리이다
 <br />
 
 ## install
-```shell
+```powershell
 yarn add styled-components
 ```
-```shell
+```powershell
 npm install styled-components
 ```
 설치를 하고, 사용하고 싶은 컴포넌트에 import 한다.
