@@ -40,7 +40,7 @@ ReactDOM.render(
 
 );
 ```
-1. `<Provider>를 import한다.
+1. `<Provider>`를 import한다.
 2. state 값 공유를 원하는 컴포넌트를 감싸준다.
      * App 컴포넌트를 감쌌기 때문에 App 컴포넌트와 그 안에 있는 HTML, 컴포넌트들 전부 state를 props 전송없이 사용할 수 있게 된다.
 
