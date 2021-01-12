@@ -1,6 +1,12 @@
 # Redux
 
-컴포넌트가 많아질수록 props 전송하는 과정이 복잡해진다. Redux를 이용하면 **props없이 모든 컴포넌트가 state를 공유해서 사용**할 수 있기 때문에 많은 React 개발자들이 사용한다. 하지만 조사에 따르면 3년 내에 Redux를 안 쓴다는 개발자가 많다고 한다. Context API를 위주로 학습하되, Redux 사용법도 알아주는 것이 좋겠다.
+컴포넌트가 많아질수록 props 전송하는 과정이 복잡해진다. Redux를 이용하면 **props없이 모든 컴포넌트가 state를 공유해서 사용**할 수 있기 때문에 많은 React 개발자들이 사용한다. 즉, '전역 상태'를 생성하고 관리하기 위한 라이브러리이다. 학습용으로 만드는 프로젝트에서는 당최 왜 이 복잡한 것을 써야하는지 모를 수 있지만, 실무에서 큰 규모의 프로젝트를 진행할 때 redux는 강력한 도구가 된다.
+
+![Frame 3](https://user-images.githubusercontent.com/59480963/104291328-bf217780-54fe-11eb-9176-c94df916186e.jpg)
+리덕스의 코어 컨셉은 크게 네가지만 기억하면 된다. 
+
+component는 화면을 보여주는 view(App)이 될 것이고, store는 정보를 저장하는 공간이라고 생각하면 된다. 
+
 
 <br />
 
@@ -11,7 +17,7 @@ npm install redux react-redux
 ```shell
 yarn add redux react-redux
 ```
-redux와 react-redux 두개의 라이브러리를 설치해준다.
+redux와 react-redux 두 개의 라이브러리를 설치해준다.
 redux는 데이터를 엄격하게 관리하는 기능이고, react-redux는 리덕스를 리액트에서 쓸 수 있게 도와주는 기능을 제공한다.
 
 <br />
@@ -54,9 +60,25 @@ let store = createStore( () => {
   })
 
 ```
-import해온 후 `createStore(callback function)`을 작성한다. 콜백함수에는 원하는 state의 초기값을 return하면 된다.
+import해온 후 `createStore(callback function)`을 작성한다. 콜백함수에는 원하는 state의 초기값을 return하면 된다. `store`에는 전역 상태를 저장한다. 객체 형태로 저장이 되고, 리듀서를 통하지 않고는 접근할 수 없다. 하나의 어플리케이션에 하나의 저장소만 존재해야하기 때문에, 리액트에서는 주로 `index.js`에 정의한다.
 
 4. `<Propvider>`에 만든 state를 props처럼 등록하면 된다.
+```jsx
+(index.js)
+
+import {Provider} from 'react-redux';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
+```
+
 
 <br />
 
@@ -166,6 +188,13 @@ props를 쓰는 방법과 마찬가지로 파라미터에 props를 추가하면 
 1. 원하는 컴포넌트 파일에서 함수를 만들고 state를 props로 등록한다.
 2. 제일 마지막에 `export default connect()()`한다.
 
+<br />
+
+## state 데이터를 수정하는 방법
+1. `reducer` 함수를 만들고 그 곳에 데이터 수정하는 방법을 정의한다.
+2. 원하는 곳에서 `dispatch()`를 써서 `reducer`에 써진대로 데이터를 수정한다.
+
+
 
 <br />
 <br />
@@ -173,6 +202,7 @@ props를 쓰는 방법과 마찬가지로 파라미터에 props를 추가하면 
 
 ##### 출처
 - [코딩애플](https://online.codingapple.com/unit/react4-setstate-usestate-onclick-eventhandler/?id=2305)
+- [Code Scalper](https://youtu.be/wSbjROmXTaY)
 
 
 
