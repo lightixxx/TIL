@@ -1,6 +1,9 @@
 # class 문법
 요즘은 잘 사용되지 않지만, 실무를 하다보면 옛날 문법으로 작성된 리액트파일을 볼 수 있기에 간단하게 알아보자.
 
+## Function component VS Class component
+function component는 function이고, 어떤 값을 return하고, screen에 표시한다. 반면 Class component는 class이지만, React.Component로부터 확장되고 screen에 표시하고, 그것을 render 메소드 안에 넣는다. react는 자동적으로 모든 class component의 render 메소드를 실행한다.
+
 ## Component
 ```jsx
 function App() {
@@ -42,7 +45,7 @@ class 문법은 여러개의 데이터나 함수를 한 곳에 보관하고 싶�
 <br />
 
 ## state
-class 문법에서는 constructor 안에 모든 state를 보관했다.
+class 문법에서는 constructor 안에 모든 state를 보관한다.
 ```jsx
 class Profile extends React.Component {
   constructor() {
@@ -149,6 +152,71 @@ class Profile extends React.Component {
 
 <br />
 
+### Lifecycle method
+
+#### Mount
+컴포넌트의 인스턴스가 생성되어 DOM 상에 삽입될 때 순서대로 호출된다. component가 마운트될 때, constructor를 호출하고, 그리고 나서 render가 호출된다. 그리고 마지막으로 componentDidMount가 호출된다.
+
+```jsx
+class App extends React.Component {
+  constructor() {
+    super(); // 1번째로 실행
+  }
+
+  componentDidMount() {
+    console.log('컴포넌트가 마운트 됐을 때 실행') // 3번째로 실행
+  }
+
+  render() {
+    return ...// 2번째로 실행
+  }
+}
+```
+
+<br />
+
+#### Update
+props나 state가 변경되면 업데이트가 되면서 component가 다시 렌더링될 때 순서대로 호출된다.
+
+```jsx
+class App extends React.Component {
+  constructor() {
+    super(); // 1번째로 실행
+  }
+
+  componentDidUpdate() {
+    console.log('컴포넌트가 업데이트 됐을 때 실행') // 3번째로 실행
+  }
+
+  render() {
+    return ...// 2번째로 실행
+  }
+}
+```
+<br />
+
+#### Unmount
+component가 DOM 상에서 제거될 때에 호출된다.
+
+```jsx
+class App extends React.Component {
+  constructor() {
+    super(); // 1번째로 실행
+  }
+
+  componentWillUnmount() {
+    console.log('컴포넌트가 언마운트 됐을 때 실행') // 3번째로 실행
+  }
+
+  render() {
+    return ...// 2번째로 실행
+  }
+}
+```
+
+<br />
+
+
 ### 결론 - 신문법을 사용하자
 리액트의 공식문서에서도 컴포넌트를 만들 때 function문법으로 사용하라고 권장한다. 복잡한 class 문법이나 this 키워드를 사용하지 않아도 되니 세부 문법을 체크할 필요없이 쉽고 빠르게 리액트 웹개발이 가능해지기 때문이다.
 
@@ -161,3 +229,4 @@ class Profile extends React.Component {
 ##### 출처
 
 - [코딩애플](https://online.codingapple.com)
+- [React 공식 사이트](https://ko.reactjs.org/docs/react-component.html#componentdidmount)
