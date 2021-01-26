@@ -1,5 +1,12 @@
 # axios
-axios는 http 프로토콜을 이용해서 데이터를 요청하거나 받아올 수 있는 라이브러리 이다. 
+axios는 http 프로토콜을 이용해서 데이터를 요청하거나 받아올 수 있는 라이브러리 이다. 마치 fetch 위에있는 작은 layer 같은 것.
+
+<br />
+
+## Install
+```powershell
+npm install axios
+```
 
 <br />
 
