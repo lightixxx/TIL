@@ -11,8 +11,42 @@ HTML 문서는 브라우저가 화면을 그리기 위한 **초기 설계도의 
 주의할 것은 자바스크립트로 화면을 수정한다고 해서 HTML문서 자체가 수정되는 것은 아니다.
 
 <br />
+
+## 자바스크립트 입장에서 HTML문서는 문자열이다.
+문자열로만 보이는 HTML을 DOM을 통해 JavaScript가 이해할 수 있는 Object 형태로 바꾼 것이라고 이해하면 쉽다.
+```jsx
+const htmlDocumentContent = `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>child 1</div>
+    </div>
+  </body>
+  </html>
+`
+```
+단순히 이 문자열을 최소한의 의미가 있는 단위로 쪼개야하기 때문에 child 1을 가져오기 위해서
+```jsx
+const child1 = {
+  nodeType: 1,
+  nodeName: 'div',
+  childNode: [],
+  attribute: [],
+}
+```
+이런 객체형태로 바꿔주는(PARSE) 녀석이 DOM이다.
+
+
+<br />
 <br />
 <br />
 
 ##### 출처
 - [바닐라코딩](https://book.vanillacoding.co/bootcamp-prep/week-2/2.dom-review/2-1.-dom-introduction)
+- [김버그Kimbug](https://youtu.be/CFgXIJ3RZ50)
