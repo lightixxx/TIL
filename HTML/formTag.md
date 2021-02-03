@@ -113,3 +113,59 @@ label을 누르면 input에 focus가 되기 때문에 사용성이 개선된다.
 ```
 
 <br />
+
+## `<select>` 와 `<option>`
+옵션으로 드롭 다운 목록을 작성하는 태그이다.
+```html
+<form action="" method="GET">
+
+  <label for="hobby">취미</label>
+  
+  <select name="hobby" id="hobby">
+    <option value="design"> design </option>
+    <option value="photograph"> photograph </option>
+    <option value="videoEditing"> videoEditing </option>
+  </select>
+  
+  <input type="submit" />
+</form>
+```
+
+### 추가할 수 있는 attribute
+- multiple : 여러가지 옵션을 선택한다.
+- size : 한 번에 볼 수 있는 행의 개수를 지정한다.
+- disabled : 선택 메뉴를 비활성화한다.
+
+<br />
+
+## `<textarea>`
+여러 줄의 텍스트를 입력받을 때 사용하는 태그이다.
+```html
+<label for="field"> 자기소개 </label>
+<textarea id="field" placeholder="자기소개를 입력하세요"></textarea>
+```
+### 추가할 수 있는 attribute
+- rows="30" : 양식의 줄 수를 지정한다.(CSS로 조절도 가능)
+- maxlength="500" : 입력 가능한 최대 문자 수를 지정한다.
+- autofocus : 페이지가 로드될 때 자동으로 포커스가 된다.
+- placeholder="자기소개" : 기본 안내 문구를 제공한다.
+- disabled : 양식을 비활성화한다.
+
+<br />
+
+## `<button>`
+선택 가능한 버튼을 만들 때 사용하는 태그이다.
+```html
+<!-- 자바스크립트를 이용한 기능 구현에 주로 사용 -->
+<button type="button"> 버튼 </button>
+
+<!-- 폼의 전송 전송 기능 -->
+<button type="submit"> 확인 </button>
+
+<!-- 폼 작성 내용 초기화 기능 -->
+<button type="reset"> 다시 쓰기 </button>
+```
+
+### `<button type="button">` VS `<a href="#">` VS `<input type="button">`
+1. `<input type="button">` 보다 스타일링하기 자유롭고, 태그 안에 다른 태그 삽입도 가능하다.
+2. `<a>`태그는 문서 간 연결이 주된 목적이기 때문에 링크에만 사용하는 것이 좋고, 기능 구현은 button으로 하는 것이 시멘틱한 마크업이다.
