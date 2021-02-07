@@ -6,26 +6,30 @@ react로 개발을 하다보면, webpack과 더불어 babel은 세트처럼 사�
 <br />
 
 ## 사용법
-1. 프로젝트 초기화 및 package.json 생성
+### 프로젝트 초기화 및 package.json 생성
 ```powershall
 npm init -y
 ```
 
 <br />
 
-2. babel/core 랑 babel/cli 설치
+### babel/core 랑 babel/cli 설치
 ```powershall
 npm i -D @babel/core @babel/cli
 
+<!-- 안되면 -->
+npx babel
+
 <!-- 전역 설치 -->
 npm i -g @babel/core @babel/cli
+
 ```
 - babel/core : 코드를 구 브라우저에서 돌아가게 변환해주는 역할
 - babel/cli : Command Line Interface 명령어를 사용할 수 있게 해주는 역할
 
 <br />
 
-3. babel 사용 옵션
+### babel 사용 옵션
 babel을 사용하기 위해선 옵션을 설정해야 한다. (src 폴더 안에 있는 모든 directory를 다른 폴더로 변환하겠다.)
 ```powershall
 <!-- src 안에 있는 모든 directory를 dist 폴더로 변환해서 이동하겠다. -->
@@ -34,7 +38,7 @@ babel src -d dist
 
 <br />
 
-4. 예제 파일 작성
+### 예제 파일 작성
 ```js
 // src/Person.js
 class Person {
@@ -55,7 +59,7 @@ class, template literal(``)는 최신 문법이기 때문에 옛날 브라우저
 
 <br />
 
-5. babel/preset-env 설치
+### babel/preset-env 설치
 ```powershall
 npm i -D @babel/preset-env
 ```
@@ -63,7 +67,7 @@ preset environment 바벨을 이용할 때 어떤 환경을 조절할 수 있게
 
 <br />
 
-6. 루트에 .babelrc 파일 생성
+### 루트에 .babelrc 파일 생성
 ```json
 {
   "presets": ["@babel/preset-env"]
@@ -75,7 +79,7 @@ babel을 실행할 때, .babelrc 파일이 없다면 기본값으로 실행이 �
 
 <br />
 
-7. 변환된 js파일 연결하기
+### 변환된 js파일 연결하기
 ```html
 <!-- public/index.html -->
 <script src="../dist/index.js"></script>
@@ -86,8 +90,16 @@ src안에 있는 파일은 개발할 때 사용하는 파일이고, 실제로 �
 
 <br />
 
-8. watch 옵션 주기
+### watch 옵션 주기
 ```powershall
 babel src -d dist --watch
 ```
 watch 옵션으로 babel을 실행하게 되면, babel이 종료되지 않고 소스 코드가 변경될 때 마다 알아서 컴파일을 진행한다.
+
+예를 들어 바벨만 이용해서는 
+
+<br />
+
+바벨은 그 코드를 옛날 브라우저에서 돌아가게끔 코드를 변환할 뿐이고, 그 변환된 코드가 브라우저에서 실행되는 함수인지 아닌지는 바벨이 알지 못한다.
+
+예를 들어 브라우저에서 모듈을 가져오기 위해 `import Person from './Person'`을 바벨을 통해 컴파일하면 require 함수로 변환이 되는데, require 함수는 브라우저에서 알지 못한다. 바벨을 통해서 모듈을 가져오거나, 내보내거나 하는 코드는 이용할 수 없다. 따라서 모듈을 번들링하기 위해서는 webpack을 함께 이용해야 한다.
