@@ -26,6 +26,41 @@
 
 <br />
 
+## 주요 개념
+1. Element
+   - 화면에 표시할 내용으로써 리액트 앱의 가장 작은 단위를 말한다.
+2. Component
+   - Element를 반환하는 함수 
+      >```jsx
+      >export default function WelcomeText(props) {
+      >    console.log(props);
+      >    return <p>{props.name}님 안녕하세요!</p>      
+      >}
+      >```
+   - React.Component를 상속받고, Element를 반환하는 render 메서드가 있는 클래스
+      >```jsx
+      >export default class WelcomeText extends React.Component {
+      >     constructor(props) {
+      >       super(props) 
+      >     }
+      >     render() {
+      >       return (
+      >          <p>{this.props.name}님 안녕하세요!</p>     
+      >       )
+      >     }   
+      >}
+      >```
+   - 입력값을 받고 결과를 반환한다는 측면에서 개념적으로 함수와 같다.
+   - 입력값을 props 파라미터로 받고 Element를 반환한다.
+3. props
+   - 속성을 나타내는 데이터
+   - read only
+4. event
+   - on prefix(onClick, onChange 등), camelCase
+   - 해당 이벤트 발생 시 할당된 함수 실행
+
+<br />
+
 ## 작업환경 준비
 - Node.js: 자바스크립트 런타임인 Node.js는 Webpack과 Babel 같은 도구를 사용하기 위해 설치해야 한다.
 - Yarn: npm과 마찬가지로 패키지 매니저 도구이다. 프로젝트에서 사용되는 라이브러리를 설치하고, 해당 라이브러리의 버전 관리를 할 때 사용한다.
