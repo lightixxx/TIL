@@ -86,3 +86,123 @@ switch (browser) {
 `switch`문의 표현식의 평가 결과와 일치하는 `case`문으로 이동해서 `console.log('Go away!')`를 실행한 것은 맞지만, 문을 실행한 후 `switch` 문을 탈출하지 않고 `switch`문이 끝날 때까지 모든 `case`,`default`를 실행한다.
 
 단, `default` 문은 가장 마지막에 위치하므로 `break`문을 생략하는 것이 일반적이다. 
+
+<br />
+
+## 조건문 똑똑하게 사용하기
+배열이나 객체를 활용하면 조건문을 더욱 스마트하게 작성할 수 있다.
+
+<br />
+
+### 주어진 값에 따라 true, false를 return
+```js
+function isAnimal(text) {
+	return (
+		text === '고양이' || text === '개' || text === '오리' || text === '참새' || 
+	)
+}
+
+console.log(isAnimal('고양이')) // true
+console.log(isAnimal('강아지')) // false
+```
+위 코드 처럼 사용해도 되지만, 배열을 이용하면 더욱 깔끔하게 작성할 수 있다.
+```js
+function isAnimal(text) {
+	const animals = ['고양이', '개', '오리', '참새']
+	return animals.includes(text)
+}
+
+console.log(isAnimal('고양이')) // true
+console.log(isAnimal('강아지')) // false
+```
+ES6의 arrow function을 사용하면 더욱 깔끔하게 작성할 수 있다.
+```js
+const isAnimal = text => ['고양이', '개', '오리', '참새'].includes(text)
+
+console.log(isAnimal('고양이')) // true
+console.log(isAnimal('강아지')) // false
+```
+물론 코드가 짧아진다고 좋은 코드가 되는 것은 아니지만, 코드가 짧으면서 읽으면서 어떤 기능을 하는지 알 수 있게 짜는 것이 좋은 코드이다.
+
+<br />
+
+### 주어진 값에 따라 다른 결과를 return
+
+```js
+function getSound(animal) {
+	if (animal === '고양이') return '야옹'
+	if (animal === '개') return '멍멍'
+	if (animal === '오리') return '꽥꽥'
+	if (animal === '참새') return '짹짹'
+	return '없음'
+}
+
+console.log(getSound('고양이')) // '야옹'
+console.log(getSound('강아지')) // '없음'
+```
+switch 조건문으로 작성해도 된다.
+```js
+function getSound(animal) {
+	switch(animal) {
+		case '고양이' :
+			return '야옹';
+		case '개' :
+			return '멍멍';
+		case '오리' :
+			return '꽥꽥';
+		case '참새' :
+			return '짹짹';
+		default :
+			return '없음';
+	}
+}
+console.log(getSound('고양이')) // '야옹'
+console.log(getSound('강아지')) // '없음'
+```
+사실 switch 조건문 보단 if문이 더 깔끔하다. 이때 객체를 사용하면 더욱 깔끔한 코드를 작성할 수 있다.
+```js
+function getSound(animal) {
+	const sounds = {
+		고양이 : '야옹',
+		개 : '멍멍',
+		오리 : '꽥꽥',
+		참새 : '짹짹',
+	}
+	return sounds[animal] || '없음'
+}
+
+console.log(getSound('고양이')) // '야옹'
+console.log(getSound('강아지')) // '없음'
+```
+이렇게 작성하면 switch문, if문 보다 훨씬 깔끔한 코드를 작성할 수 있다.
+
+<br />
+
+### 주어진 값에 따라 다른 코드를 실행
+```js
+function makeSound(animal) {
+	const tasks = {
+		고양이: () => {
+			console.log('야옹');
+		},
+		개: () => {
+			console.log('멍멍');
+		},
+		오리: () => {
+			console.log('꽥꽥');
+		},
+		참새: () => {
+			console.log('짹짹');
+		},
+	}
+
+	if(!tasks[animal]) {
+		console.log('없음');
+		return;
+	}
+	tasks[animal]();
+}
+
+makeSound('개') // 멍멍
+makeSound('강아지') // 없음
+```
