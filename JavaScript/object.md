@@ -195,7 +195,23 @@ print(lvvrush);
 
 <br />
 
-## 객체 비구조화 할당 (객체 구조 분해)
+## 객체 비구조화 할당 or 객체 구조 분해 (ES6)
+```js
+const object = { a: 1, b: 2};
+const {a, b} = object;
+console.log(a); // 1
+console.log(b); // 2
+```
+```js
+const object = { a: 1, b: 2 };
+
+function print({a, b}) {
+  console.log(a); // 1
+  console.log(b); // 2
+}
+
+print(object);
+```
 print 함수에서 파라미터로 받아온 person의 값을 사용할 때마다 `person.`을 사용하는데, 객체 비구조화 할당을 이용해서 짧고 보기 좋게 작성할 수 있다.
 ```jsx
 const lightix = {
@@ -215,6 +231,78 @@ print(lightix);
 같은 결과가 나오는 것을 볼 수 있다. 
 
 더 축약한다면 매개변수로 `{name, age, job}` 을 사용할 수도 있다.
+
+<br />
+
+### 비구조화 할당에서 이름을 바꾸기
+```js
+const animal = {
+  name: '멍멍이',
+  type: '개'
+}
+
+const { name: nickname } = animal;
+console.log(nickname); // 멍멍이
+```
+기존의 animal 객체가 바뀌는 것은 아니다
+
+<br />
+
+### 배열 비구조화 할당
+```js
+const array = [1, 2];
+const [one, two] = array;
+
+console.log(one); // 1
+console.log(two); // 2
+```
+
+<br />
+
+### 객체의 깊은 비구조화 할당
+아래 객체에서 name, languages, value 값을 밖으로 꺼내고 싶다고 가정해보자.
+```js
+const deepObject = {
+  state: {
+    information: {
+      name: 'ligntix',
+      languages: ['html', 'css', 'javascript']
+    }
+  },
+  value: 5
+}
+```
+크게 두 가지 방법이 있다.
+
+첫번째 방법은 비구조화 할당을 두번 사용하는 것이다.
+```js
+const { name, languages } = deepObject.state.information;
+const { value } = deepObject;
+
+const extracted = {
+  name,
+  languages,
+  value
+};
+
+console.log(extracted);
+```
+
+두번째 방법은 비구조화 할당을 한번 사용해서 여러 값을 다 빼오는 것이다.
+
+```js
+const {
+  state: {
+    information: {
+      name, languages
+    }
+  },
+  value
+} = deepObject;
+
+console.log(extracted);
+```
+위 코드처럼 한번에 비구조화 할당을 사용하면 코드 가독성이 떨어지기 때문에, 비구조화 할당을 여러번에 걸쳐서 하는 것이 더 좋다.
 
 <br />
 
