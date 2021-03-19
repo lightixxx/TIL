@@ -306,6 +306,140 @@ console.log(extracted);
 
 <br />
 
+## spread 문법(ES6)
+
+### 객체에서 사용
+spread 문법을 사용하면 객체나 배열을 펼칠 수 있다.
+```js
+const lightix = {
+  name: 'kiwoong'
+}
+
+const cuteLightix = {
+  name: 'kiwoong',
+  attribute: 'cute'
+}
+
+const developerCuteLightix = {
+  name: 'kiwoong',
+  attribute: 'cute',
+  job: 'developer'
+}
+```
+위 코드처럼 기존의 객체를 참고해서 새로운 객체를 만들고 싶을 땐 spread 문법을 사용하면 된다.
+
+```js
+const lightix = {
+  name: 'kiwoong'
+}
+
+const developerLightix = {
+  ...lightix,
+  job: 'developer'
+}
+
+const cuteDeveloperLightix = {
+  ...developerLightix,
+  attribute: 'cute'
+}
+```
+해당 객체를 그대로 가져와서 사용하게 되는 것이다.
+
+### 배열에서 사용
+```js
+const animals = ['개', '고양이', '참새'];
+const anotherAnimals = [...animals, '오리'];
+```
+
+### 함수의 인자에서 사용
+```js
+function sum(a, b) {
+  return a + b;
+}
+
+const numbers = [1, 2]
+const result = sum(...numbers);
+
+console.log(result); // 3
+```
+spread를 통해 배열의 모든 원소를 꺼내서 인자로 사용할 수 있다.
+<br />
+
+## rest 문법(ES6)
+rest는 spread 문법과 생김새는 비슷하지만 역할이 다르다.
+또한 rest는 객체, 배열 뿐 아니라 함수의 파라미터에서도 사용할 수 있다.
+
+### 객체에서 사용
+```js
+const cuteDeveloperLightix = {
+  name: 'kiwoong',
+  job: 'developer',
+  attribute: 'cute'
+}
+
+const { job, ...rest } = cuteDeveloperLightix;
+
+console.log(job); // developer
+console.log(rest); // Object {name: 'kiwoong', attribute: 'cute'}
+
+const { attribute, ...lightix } = cuteLightix;
+console.log(lightix); // Object {name: 'kiwoong'}
+```
+`...rest` 안에는 `job`을 제외한 객체가 들어가게 된다. 
+> `...rest`는 예시일 뿐, `...cuteLightix` 등 맘대로 작성해도 된다.
+
+spread는 특정 객체나 배열 안에 다른 객체나 배열을 퍼트리는 역할을 한다면, rest는 반대로 퍼져있는 것들을 모으는 역할을 한다.
+
+### 배열에서 사용
+```js
+const numbers = [0, 1, 2, 3, 4, 5];
+const [one, ...rest] = numbers;
+
+console.log(one); // 0
+console.log(rest); // [1, 2, 3, 4, 5]
+```
+주의할 점은 배열에서 rest는 항상 마지막에 와야한다.
+
+### 함수의 파라미터에서 사용
+
+함수의 파라미터로 몇 개를 받아올지 모르는 상황에서 입력된 값을 모두 더해주는 함수를 만든다고 가정해보자.
+```js
+function sum(a, b, c, d, e, f, g) {
+  return a + b + c + d + e + f + g;
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // NaN
+```
+파라미터의 개수보다 적게 입력할 경우 뒤에 오는 파라미터에 `undefined` 값이 들어가게 돼서 NaN이 나오게 된다.
+
+해결 방법으로는 if문을 통해 해당 파라미터가 존재할 때만 더해주는 방법이 있지만, 코드가 지저분해지고 너무 길어지게 된다. 게다가 파라미터로 값을 더 넣게되면 코드를 또 추가해야 하기 때문에 권장되지 않는 방법이다.
+
+이때 rest 문법을 사용하게 되면 간결하게 해결할 수 있다.
+```js
+function sum(...params) {
+  return param.reduce( (acc, current) => {
+    acc + current
+  }, 0)
+}
+
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+```
+`sum` 함수를 호출할 때 파라미터를 배열로 받아오게 된다. 이때 배열 내장함수인 `reduce`를 통해 모두 더해서 리턴해주면 해결된다.
+
+```js
+function sum(...params) {
+  return param.reduce( (acc, current) => {
+    acc + current
+  }, 0)
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(sum(...numbers));
+```
+`spread`문법과 `rest`문법을 같이 사용하면 위 코드처럼 작성할 수 있다.
+
+<br />
+
 ## This
 함수가 객체안에 들어가면, `this`는 자신이 속해있는 객체를 가리킨다.
 
