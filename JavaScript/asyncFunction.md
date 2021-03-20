@@ -1,9 +1,81 @@
-# async function
+# Asynchronous(비동기적)
+
+작업을 동기적으로 처리한다면 작업이 끝날 때까지 기다리는 동안 다른 작업은 중지된다. 이때 비동기적으로 처리를 하면 기다리지 않고 여러 작업을 동시에 처리할 수 있다.
+
+```js
+function work() {
+  const start = Date.now();
+  for (let i = 0; i < 1000000000; i++) { }
+  const end = Date.now();
+  console.log(end - start + 'ms');
+}
+
+work();
+console.log('다음 작업')
+```
+위 `work`함수는 1,000,000,000번 루프를 돌고 이 작업이 얼마나 걸렸는지 알려주는 함수이다. 이 함수가 호출이 되면 for문은 다른 작업은 처리하지 않고, 루프가 끝난 뒤에야 비로소 `console.log('다음 작업')`을 실행한다. 
+
+> 결과 : 508ms -> 다음 작업
+
+만약 위 상황에서 루프가 도는 동안 다른 작업도 하고싶다면 함수를 비동기 형태로 전환해주어야 한다.
+
+```js
+function work() {
+  setTimeout( () => {
+    const start = Date.now();
+    for(let i = 0; i < 1000000000; i++) {}
+    const end = Date.now();
+    console.log(end - start + 'ms')
+  }, 0)
+}
+
+console.log('작업 시작')
+work();
+console.log('다음 작업')
+```
+
+`setTimeout`함수는 첫번째 파라미터에 넣은 함수를 두번째 파라미터에 넣은 시간이 흐른 뒤에 호출한다. 이렇게 `setTimeout`을 사용하면 작업이 백그라운드에서 수행되기 때문에 기존의 코드 흐름을 막지 않고 동시에 다른 작업들을 진행할 수 있다.
+
+> 결과 : 작업 시작 -> 다음 작업 -> 508ms
+
+결과를 보면, 작업이 시작되고 for 루프가 돌아가는 동안 다음 작업을 실행하고, for 루프가 끝나면 결과를 알려준다.
+
+만약 `work` 함수가 끝난 다음에 어떤 작업을 처리하고 싶다면 callback 함수를 파라미터로 전달하면 된다.
+
+```js
+function work(callback) {
+  setTimeout(() => {
+    const start = Date.now();
+    for(let i = 0; i < 1000000000; i++) {}
+    const end = Date.now();
+    console.log(end - start + 'ms');
+    callback();
+  }, 0)
+}
+
+console.log('작업 시작');
+work(() => {
+  console.log('작업 끝!')
+});
+console.log('다음 작업');
+```
+
+> 결과 : 작업 시작 -> 다음 작업 -> 508ms -> 작업 끝!
+
+
+- Ajax Web API 요청 : 서버쪽에서 데이터를 받아올 때, 요청을 하고 서버에서 응답할 때까지 대기를 해야하기 때문에 작업을 비동기적으로 처리한다.
+- 파일 읽기 : 서버 쪽에서 파일을 읽어야 하는 상황에는 비동기적으로 처리한다.
+- 암호화/복호화 : 암호화/복호화를 할 때에도 바로 처리가 되지 안혹, 시간이 어느정도 걸리기 때문에 비동기적으로 처리한다.
+- 작업 예약 : 단순히 어떤 작업을 몇 초 후에 스케쥴링 해야하는 상황에서 `setTimeout`을 사용해서 비동기적으로 처리를 한다.
+
+<br />
+
+## async function
 Promise를 기반으로 AsyncFunction 객체를 반환하는 하나의 비동기 함수를 정의한다.
 
 <br />
 
-## Promise 객체가 resolve 될 때 async
+### Promise 객체가 resolve 될 때 async
 ```jsx
 // Promise 객체를 리턴하는 함수
 function p(ms) {
@@ -33,7 +105,7 @@ main();
 
 <br />
 
-## Promise 객체가 reject 될 때 async
+### Promise 객체가 reject 될 때 async
 ```jsx
 function p(ms) {
   return new Promise((resolve, reject) => {
@@ -58,7 +130,7 @@ resolve됐을 땐 try 구문에서 실행되고, reject 됐을 땐 `catch`로 �
 
 <br />
 
-## Promise 없이 async function 에서 
+### Promise 없이 async function 에서 
 ```jsx
 function p(ms) {
   return new Promise((resolve, reject) => {
@@ -258,3 +330,4 @@ main();
 ##### 출처
 - [패스트캠퍼스 온라인강의](https://www.fastcampus.co.kr/)
 - [Poiema Web](https://poiemaweb.com/js-data-type-variable)
+- [Velopert](https://learnjs.vlpt.us/async/)
