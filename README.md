@@ -106,3 +106,4 @@
 * [ETC](https://github.com/lightixxx/TIL/blob/master/ETC)
   - [VSCodeShortcut](https://github.com/lightixxx/TIL/blob/master/ETC/VScodeShortcut.md)
   - [axios](https://github.com/lightixxx/TIL/blob/master/ETC/axios.md)
+  - [prettier](https://github.com/lightixxx/TIL/blob/master/ETC/prettier.md)
