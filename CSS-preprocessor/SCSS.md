@@ -202,6 +202,43 @@ color 값이 false가 된다. 이를 해결하기 위해 조건문을 사용해�
 
 <br />
 
+## %module - @extend
+자주 사용하는 요소들은 미리 만들어서 효율적으로 코드를 짤 수 있도록 도와준다. placeholder와 mixin은 기본적으로 반복되는 코드를 사용하지 않게 해주는 역할은 비슷하다. 하지만 용도가 약간 다르다. 
+
+mixin은 인자를 받을 수 있지만 placeholder는 인자를 받을 수 없다. 또한 mixin은 여러 요소에 적용할 수 있지만 placeholder는 공통된 스타일을 공유하고 있는 요소들끼리에 적용하는 것이 바람직한 사용법이다. 
+
+예를 들어 mixin에서는 flexbox와 같이 여러 요소에서 사용할 수 있는 속성들을 정의하는 반면, placeholder에서는 button, tag 등 공통된 요소들끼리 적용한다.
+
+1. 비슷한 요소의 공통스타일을 만든다.
+```scss
+%tag-base {
+  // 공통 스타일
+  @include text-style(12);
+  height: 20px;
+  padding: 0 6px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+```
+
+2. 사용할 때는 `@extend`를 사용한다.
+```scss
+.tag-red {
+  @extend %tag-base;
+  color: #fff;
+  background-color: red;
+}
+
+.tag-gray {
+  @extend %tag-base;
+  color: #000;
+  background-color: gray;
+}
+```
+
+
+<br />
+
 ##### 출처
 - [HEROPY](https://heropy.blog/2018/01/31/sass)
 - [kimbug](https://edu.goorm.io/lecture/25681/%EA%B9%80%EB%B2%84%EA%B7%B8%EC%9D%98-ui-%EA%B0%9C%EB%B0%9C-%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84-%EA%B2%BD%EB%A0%A5%EA%B0%99%EC%9D%80-%EC%8B%A0%EC%9E%85%EC%9C%BC%EB%A1%9C-%EB%A0%88%EB%B2%A8%EC%97%85?utm_source=inhouse_edu_p&utm_medium=display&utm_campaign=kimbug_ui&utm_content=banner)
