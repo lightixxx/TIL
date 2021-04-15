@@ -200,6 +200,45 @@ color 값이 false가 된다. 이를 해결하기 위해 조건문을 사용해�
 ```
 이런 검사를 유효성 검사, validation check라고 한다. 
 
+때때로 입력할 인수의 개수가 불확실할 경우에 가변인수를 사용할 수 있다.
+```scss
+@mixin 믹스인이름($매개변수...) {
+  스타일;
+}
+
+@include 믹스인이름(인수A, 인수B, 인수C);
+```
+
+```scss
+// 인수를 순서대로 하나씩 전달받다가, 3번째 매개변수($bg-value)는 인수의 개수에 상관없이 받게된다.
+@mixin bg($width, $height, $bg-values...) {
+  width: $width;
+  height: $height;
+  background: $bg-values;
+}
+
+div {
+  // mixin(bg)설정에 맞게 인수를 순서대로 전달하다가 3번째 이후부터는 개수에 상관없이 전달한다.
+  @include bg(
+    100px,
+    200px,
+    url("/images/a.png") no-repeat 10px 20px,
+    url("/images/b.png") no-repeat,
+    url("/images/c.png")
+  );
+}
+```
+```css
+/* 컴파일 */
+div {
+  width: 100px;
+  height: 200px;
+  background: url("/images/a.png") no-repeat 10px 20px,
+              url("/images/b.png") no-repeat,
+              url("/images/c.png");
+}
+```
+
 <br />
 
 ## %module - @extend
@@ -235,6 +274,97 @@ mixin은 인자를 받을 수 있지만 placeholder는 인자를 받을 수 없�
   background-color: gray;
 }
 ```
+
+
+<br />
+
+## 함수
+함수와 mixin은 거의 유사하지만 반환되는 내용이 다르다.
+mixin은 지정한 스타일을 반환하지만, 함수는 보통 연산된 값을 `@return` 지시어를 통해 반환한다. 
+
+```scss
+// mixins
+@mixin 믹스인이름($매개변수) {
+  스타일;
+}
+@include 믹스인이름(인수);
+
+// functions
+@function 함수이름($매개변수) {
+  @return 값
+}
+함수이름(인수);
+```
+또한 mixin은 `@include` 키워드를 사용하지만 함수는 함수 이름으로 바로 사용한다. 함수는 별도의 지시어 없이 사용하기 때문에 내장 함수와 이름이 충돌할 수 있기 때문에, 내가 지정한 함수에는 접두어를 붙여주는 것이 좋다.
+
+<br />
+
+## if(함수)
+조건의 값이 참인지 거짓인지에 따라 두 개의 표현식 중 하나만 반환한다.
+```scss
+if(조건, 표현식1, 표현식2)
+```
+조건의 값이 true면 표현식1을, 조건의 값이 false면 표현식2을 실행한다.
+
+```scss
+$container-width: 240px;
+div {
+  width: if($container-width > 300px, $container-width, null);
+}
+```
+
+## @if(지시어)
+또한 자바스크립트의 if문과 비슷하게 사용할 수도 있다.
+```scss
+@if (조건) {
+  // 조건이 참일 때 지정할 스타일
+} @else {
+  // 조건이 거짓일 때 지정할 스타일
+}
+```
+
+## @for
+자바스크립트의 for문과 비슷하게 @for는 스타일을 반복적으로 출력한다.
+@for는 `through`를 사용하는 형식과 `to`를 사용하는 형식으로 나누어 진다. 두 형식은 종료 조건이 해석되는 방식이 다르다.
+```scss
+// through (종료 만큼 반복)
+@for $변수 from 시작 through 종료 {
+  // 반복내용
+}
+
+// to (종료 직전까지 반복)
+@for $변수 from 시작 to 종료 {
+  // 반복내용
+}
+```
+변수는 관례상 `$i`를 사용한다.
+
+```scss
+// 1부터 3번 반복
+@for $i from 1 through 3 {
+  .through-item:nth-child(#{$i}) {
+    width: 20px * $i;
+  }
+}
+
+// 1부터 3직전까지만 반복(2번)
+@for $i from 1 to 3 {
+  .to-item:nth-child(#{$i}) {
+    width: 20px * $i;
+  }
+}
+```
+```css
+/* 컴파일 */
+.through-item:nth-child(1) { width: 20px; }
+.through-item:nth-child(2) { width: 40px; }
+.through-item:nth-child(3) { width: 60px; }
+
+.to-item:nth-child(1) { width: 20px; }
+.to-item:nth-child(2) { width: 40px; }
+```
+`:nth-child()`에서는 일반적으로 `through`를 사용하는 것을 권장한다.
+
 
 
 <br />
