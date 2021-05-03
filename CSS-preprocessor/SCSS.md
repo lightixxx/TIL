@@ -375,7 +375,33 @@ div {
 }
 ```
 
+```scss
+$fruits: (apple, orange, banana, mango);
 
+.fruits {
+  @each $fruit in $fruits {
+    li.#{fruit} {
+      background: url("./assets/images/#{$fruit}.png");
+    }
+  }
+}
+```
+
+```css
+/* compile */
+.fruits li.apple {
+  background: url("/images/apple.png");
+}
+.fruits li.orange {
+  background: url("/images/orange.png");
+}
+.fruits li.banana {
+  background: url("/images/banana.png");
+}
+.fruits li.mango {
+  background: url("/images/mango.png");
+}
+```
 
 <br />
 
