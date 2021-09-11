@@ -18,7 +18,8 @@
 
 ## 📝 &nbsp; List
 
-* [HTML](https://github.com/lightixxx/TIL/blob/master/CSS)
+- [HTML](https://github.com/lightixxx/TIL/blob/master/CSS)
+
   - [html](https://github.com/lightixxx/TIL/blob/master/HTML/html.md)
   - [linkTag](https://github.com/lightixxx/TIL/blob/master/HTML/linkTag.md)
   - [imageTag](https://github.com/lightixxx/TIL/blob/master/HTML/imageTag.md)
@@ -27,7 +28,10 @@
   - [citeTag](https://github.com/lightixxx/TIL/blob/master/HTML/citeTag.md)
   - [formTag](https://github.com/lightixxx/TIL/blob/master/HTML/formTag.md)
 
-* [CSS](https://github.com/lightixxx/TIL/blob/master/CSS)
+<br />
+
+- [CSS](https://github.com/lightixxx/TIL/blob/master/CSS)
+
   - [Selector](https://github.com/lightixxx/TIL/blob/master/CSS/Selector.md)
   - [Box](https://github.com/lightixxx/TIL/blob/master/CSS/Box.md)
   - [Float](https://github.com/lightixxx/TIL/blob/master/CSS/Float.md)
@@ -43,11 +47,17 @@
   - [Etc](https://github.com/lightixxx/TIL/blob/master/CSS/Etc.md)
   - [Tip](https://github.com/lightixxx/TIL/blob/master/CSS/Tip.md)
 
-* [CSS preprocessor](https://github.com/lightixxx/TIL/blob/master/CSS-preprocessor)
+<br />
+
+- [CSS preprocessor](https://github.com/lightixxx/TIL/blob/master/CSS-preprocessor)
+
   - [CSS-preprocessor](https://github.com/lightixxx/TIL/blob/master/CSS/CSS-preprocessor.md)
   - [SCSS](https://github.com/lightixxx/TIL/blob/master/CSS/SCSS.md)
 
-* [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
+<br />
+
+- [JavaScript](https://github.com/lightixxx/TIL/blob/master/JavaScript)
+
   - [basicSyntax](https://github.com/lightixxx/TIL/blob/master/JavaScript/basicSyntax.md)
   - [operator](https://github.com/lightixxx/TIL/blob/master/JavaScript/operator.md)
   - [condition](https://github.com/lightixxx/TIL/blob/master/JavaScript/condition.md)
@@ -61,24 +71,26 @@
   - [promise](https://github.com/lightixxx/TIL/blob/master/JavaScript/promise.md)
   - [asyncFunction](https://github.com/lightixxx/TIL/blob/master/JavaScript/asyncFunction.md)
   - [builtInObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject)
-    * [String](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/String.md)
-    * [Array](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Array.md)
-    * [Math](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Math.md)
-    * [Date](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Date.md)
+    - [String](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/String.md)
+    - [Array](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Array.md)
+    - [Math](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Math.md)
+    - [Date](https://github.com/lightixxx/TIL/blob/master/JavaScript/builtInObject/Date.md)
   - [learnMore](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore.md)
-    * [errorHandling](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/errorHandling.md)
-    * [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)
-    * [hoisting](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md)
-    * [scope](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/scope.md)
-    * [closure](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/closure.md)
-    * [globalObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/globalObject.md)
+    - [errorHandling](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/errorHandling.md)
+    - [this](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/this.md)
+    - [hoisting](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/hoisting.md)
+    - [scope](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/scope.md)
+    - [closure](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/closure.md)
+    - [globalObject](https://github.com/lightixxx/TIL/blob/master/JavaScript/learnMore/globalObject.md)
   - [algorithm](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/README.md)
-     * [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
-     * [이자율 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/interestRate.md)
-     * [커피양 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/refillCoffee.md)
+    - [서울에서 김서방찾기](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/findMrKim.md)
+    - [이자율 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/interestRate.md)
+    - [커피양 계산](https://github.com/lightixxx/TIL/blob/master/JavaScript/Algorithm/refillCoffee.md)
 
+<br />
 
-* [React](https://github.com/lightixxx/TIL/blob/master/React)
+- [React](https://github.com/lightixxx/TIL/blob/master/React)
+
   - [babel](https://github.com/lightixxx/TIL/blob/master/React/babel.md)
   - [webpack](https://github.com/lightixxx/TIL/blob/master/React/webpack.md)
   - [beginReact](https://github.com/lightixxx/TIL/blob/master/React/beginReact.md)
@@ -98,12 +110,19 @@
   - [Ajax](https://github.com/lightixxx/TIL/blob/master/React/Ajax.md)
   - [animation](https://github.com/lightixxx/TIL/blob/master/React/animation.md)
 
-* [Redux](https://github.com/lightixxx/TIL/blob/master/Redux)
+<br />
+
+- [Redux](https://github.com/lightixxx/TIL/blob/master/Redux)
   - [Redux](https://github.com/lightixxx/TIL/blob/master/Redux/Redux.md)
 
 <br />
 
-* [ETC](https://github.com/lightixxx/TIL/blob/master/ETC)
+- [Network](https://github.com/lightixxx/TIL/tree/master/Network)
+  - [Basic](https://github.com/lightixxx/TIL/blob/master/Network/1_basic.md)
+
+<br />
+
+- [ETC](https://github.com/lightixxx/TIL/blob/master/ETC)
   - [VSCodeShortcut](https://github.com/lightixxx/TIL/blob/master/ETC/VScodeShortcut.md)
   - [axios](https://github.com/lightixxx/TIL/blob/master/ETC/axios.md)
   - [prettier](https://github.com/lightixxx/TIL/blob/master/ETC/prettier.md)
