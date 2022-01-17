@@ -18,6 +18,12 @@
 
 ## 📝 &nbsp; List
 
+- [Basic](https://github.com/lightixxx/TIL/blob/master/Basic)
+
+  - [web-app](https://github.com/lightixxx/TIL/blob/master/Basic/web-app.md)
+
+<br />
+
 - [HTML](https://github.com/lightixxx/TIL/blob/master/CSS)
 
   - [html](https://github.com/lightixxx/TIL/blob/master/HTML/html.md)
@@ -123,7 +129,14 @@
 
 <br />
 
+- [UX](https://github.com/lightixxx/TIL/tree/master/User-experience)
+  - [Dialog](https://github.com/lightixxx/TIL/blob/master/User-experience/Dialog.md)
+
+<br />
+
 - [ETC](https://github.com/lightixxx/TIL/blob/master/ETC)
   - [VSCodeShortcut](https://github.com/lightixxx/TIL/blob/master/ETC/VScodeShortcut.md)
   - [axios](https://github.com/lightixxx/TIL/blob/master/ETC/axios.md)
   - [prettier](https://github.com/lightixxx/TIL/blob/master/ETC/prettier.md)
+  - [scss-link](https://github.com/lightixxx/TIL/blob/master/ETC/scss-lint.md)
+  - [Bootstrap5](https://github.com/lightixxx/TIL/blob/master/ETC/Bootstrap5.md)
