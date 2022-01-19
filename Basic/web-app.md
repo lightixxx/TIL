@@ -29,3 +29,9 @@
 또 하나의 방식은 JavaScript의 실행 결과로 HTML이 만들어지는 것이 아니라, 웹 서버에서 HTML파일을 만들어 브라우저로 전송되는 방법이 있으며 이것을 서버 사이드 렌더링(SSR)이라고 부른다.
 
 중요한 것은 어떤 웹앱이든 CSR로 개발할 수도 있고, SSR로 개발을 할 수도 있다. 단지 그 앱의 성격에 따라서 어떤 방식이 더 효과적인지가 달라진다.
+
+<br />
+
+#### 출처
+
+- [패스트캠퍼스 JavaScript & TypeScript Essential](https://fastcampus.co.kr/dev_academy_kmt1)
