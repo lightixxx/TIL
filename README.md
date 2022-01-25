@@ -21,6 +21,8 @@
 - [Basic](https://github.com/lightixxx/TIL/blob/master/Basic)
 
   - [web-app](https://github.com/lightixxx/TIL/blob/master/Basic/web-app.md)
+  - [modern-javascript](https://github.com/lightixxx/TIL/blob/master/Basic/modern-javascript.md)
+  - [typescript-vs-javascript](https://github.com/lightixxx/TIL/blob/master/Basic/typescript-vs-javascript.md)
 
 <br />
 
