@@ -10,6 +10,23 @@
 
 <br />
 
+## 간단한 node 앱 만들기
+
+화면에 Hello World!를 띄우는 간단한 앱을 만들어보자.
+
+```js
+// (index.js)
+console.log('Hello World')
+```
+
+과거엔 js 파일을 실행시키기 위해선 브라우저가 필요했지만, 지금은 브라우저 없이 파일을 실행시킬 수 있다.
+
+터미널에 `node index.js`를 입력하면 index.js 파일을 실행시킬 수 있다. NodeJS가 이 js 파일을 읽어서 실행하고 실행한 결과를 화면에 출력해준다. 이 간단한 앱의 실행 결과를 보고 알아야 하는 핵심적인 인사이트는 이 js 파일을 브라우저가 실행한 게 아니라 컴퓨터 시스템, 운영 체제에서 실행했다는 것이다. 이를 통해 브라우저에서는 할 수 없었던 다양한 일을 할 수 있어진 것이다.
+
+NodeJS가 제공하는 환경 중에 npm을 사용해서 간단하게 바꿔보자.
+
+<br />
+
 #### 출처
 
 - [패스트캠퍼스 JavaScript & TypeScript Essential](https://fastcampus.co.kr/dev_academy_kmt1)
